@@ -34,6 +34,62 @@
 			height: auto; /* Maintain aspect ratio */
 		}
 
+		.type-it {
+            font-size: 20px; /* Change the base text size here */
+            color: #0b0b0b; /* Text color */
+            text-align: left; /* Center the text */
+        }
+
+		@media (max-width: 1200px) {
+            .project-description {
+                font-size: 1.5em;
+            }
+            .skills-title {
+                font-size: 4em;
+            }
+            .skill-category {
+                width: 25%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .circular-image {
+                width: 150px;
+                height: 150px;
+            }
+            .centered-text {
+                font-size: 3.5em;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            .centered-text {
+                font-size: 4em;
+                top: 12%; /* Adjust the position to move it up */
+        
+            }
+
+        }
+
+        @media (max-width: 576px) {
+            .circular-image {
+                width: 120px;
+                height: 120px;
+            }
+            /* .centered-text {
+                font-size: 3px;
+                top: 8%; /* Adjust the position to move it up */
+                /* text-align: left; */
+            /* } */ 
+			.type-it{
+				text-align:left;
+				left: 10%;
+				overflow: hidden;
+			}
+        }
+
+
 	</style>
 </head>
 <body>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keyword" content="animations, animated, style, look">
+
+    <title>ANKIT KUMAR</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/background.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/type-it.js"></script>
+
+    <style>
+        /* Circular Image Style */
+        .circular-image {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid white;
+            z-index: 10;
+        }
+
+        .circular-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Centered Text Style */
+        .centered-text {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #0b0b0b;
+            font-size: 7em;
+            z-index: 10;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: rgb(255, 255, 255);
+            border-radius: 10px;
+            margin-top: 0px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 30px;
+        }
+
+        .project {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            opacity: 0; /* Start hidden */
+            transform: translateX(-100%); /* Start off-screen */
+            transition: transform 1.5s ease, opacity 0.5s ease; /* Smooth transition */
+        }
+
+        .project.visible {
+            opacity: 1; /* Make visible */
+            transform: translateX(0); /* Slide in */
+        }
+
+        .project-description {
+            flex: 1;
+            text-align: left;
+            margin-right: 2px;
+            font-size: 2em;
+        }
+
+        .project video {
+            max-width: 420px;
+            width: 90%;
+            height: auto;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: left;
+            margin-top: 10px;
+            opacity: 0; /* Start hidden */
+            transform: translateY(50px); /* Start below */
+            transition: transform 1s ease, opacity 0.5s ease; /* Smooth transition */
+        }
+
+        .skills.visible {
+            opacity: 1; /* Make visible */
+            transform: translateY(0); /* Slide in */
+        }
+
+        /* .skills-title {
+            font-size: 6.5em;
+        } */
+
+        h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .skill-category {
+            width: 12%;
+            margin: 10px 0;
+            font-size: medium;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1200px) {
+            .project-description {
+                font-size: 1.5em;
+            }
+            .skills-title {
+                font-size: 4em;
+            }
+            .skill-category {
+                width: 25%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .circular-image {
+                width: 150px;
+                height: 150px;
+            }
+            .centered-text {
+                font-size: 3.5em;
+            }
+            h2 {
+                font-size: 25px;
+            }
+            .project-description {
+                font-size: 1.2em;
+            }
+            .skills-title {
+                font-size: 3.5em;
+            }
+            .skill-category {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project {
+                flex-direction: column;
+                align-items: center;
+            }
+            .project-description {
+                text-align: center;
+                margin-right: 0;
+            }
+            .centered-text {
+                font-size: 4em;
+                top: 12%; /* Adjust the position to move it up */
+        
+            }
+            .skill-category {
+                width: 90%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .circular-image {
+                width: 120px;
+                height: 120px;
+            }
+            .centered-text {
+                font-size: 3em;
+                top: 8%; /* Adjust the position to move it up */
+                text-align: left;
+                left: 30%;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            .circular-image{
+                top: 5%;
+            }
+            .project-description {
+                font-size: 1em;
+            }
+            .projects-wrapper {
+                 margin-top: 15%; /* Set top margin to 15% */
+            }
+            .skills-title {
+                font-size: 3em;
+            }
+        }
+
+        /* Footer Style */
+        footer {
+            background-color: #4ea7f5; /* Green background */
+            color: white; /* White text */
+            text-align: center; /* Centered text */
+            padding: 10px 0; /* Vertical padding */
+            position: relative; /* Position relative for placement */
+            bottom: 0; /* Align at the bottom */
+            width: 100%; /* Full width */
+            z-index: 10;
+            font-size: medium; /* Ensure it sits above other elements */
+        }
+
+        /* Hide particles below featured projects */
+        .projects-wrapper {
+            position: relative;
+            z-index: 2; /* Ensure projects sit above the particles */
+            margin-top: 45%;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1; /* Ensure particles are below the projects */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <script src="js/particles.min.js"></script>
+    <script src="js/background.js"></script>
+
+    <!-- Centered Text -->
+    <div class="centered-text">
+        <span class="type-it"></span>
+    </div>
+
+    <!-- Circular Image -->
+    <div class="circular-image">
+        <img src="C:\Users\lenovo\Desktop\resume\IMG_20240417_163007.jpg" alt="Profile Image" />
+    </div>
+
+    <script>
+        // Existing strings for typing animation
+        var first = "Hello,"; 
+        var second = "I'm <strong>-ANKIT KUMAR-</strong>."; 
+        var third = "Get to know <a href='about.html'>me</a>."; 
+        var fourth = "<a href='file:///C:/Users/lenovo/Desktop/resume/Animated-Website-Template-master/ANKIT_KUMAR.pdf' target='_blank'>Resume</a> • <a href='https://github.com/ANKIT0017' target='_blank'>GitHub</a> • <a href='mailto:ankitsuperku@gmail.com' target='_blank'>Email</a>";
+        var fifth ="🢃"; // Arrow symbol
+    
+        // Initialize typing animation
+        $('.type-it').typeIt({
+            strings: [first, second, third, fourth, fifth],
+            speed: 30,
+            breakDelay: 100,
+            autoStart: true
+        });
+    
+        // Function to check if element is in viewport
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    
+        // Show projects and skills when Projects section is in view
+        function checkVisibility() {
+            if (window.innerWidth > 768) { // Only add classes if width is greater than 576px
+                if (isElementInViewport(document.getElementById('Projects'))) {
+                    $('.project').addClass('visible'); // Show projects
+    
+                    // Timer to show skills after projects
+                    setTimeout(function() {
+                        $('.skills').addClass('visible'); // Show skills
+                    }, 1000);
+                }
+            } else {
+                // For screens 576px and below, add visible class immediately
+                $('.project').addClass('visible');
+                $('.skills').addClass('visible');
+            }
+        }
+    
+        // Listen for scroll and touchmove events
+        $(window).on('scroll touchmove', function() {
+            checkVisibility(); // Check visibility on scroll and touch move
+        });
+    
+        // Initial check to handle page load
+        $(document).ready(function() {
+            checkVisibility(); // Ensure visibility on load
+        });
+    </script>
+    
+        
+    <!-- Projects Section -->
+    <div class="projects-wrapper">
+        <div class="section" id="Projects">
+            <h1>Featured Projects</h1>
+            <div class="project">
+                <div class="project-description">
+                    <h3>REAL TIME HUMAN DETECTION AND FACE RECOGNITION MODEL</h3>
+                    <p>The Real-Time Human Detection and Face Recognition Model is an advanced artificial intelligence system designed to accurately identify and recognize individuals in dynamic environments. Leveraging cutting-edge computer vision techniques and deep learning algorithms, this model is capable of processing live video feeds with minimal latency, ensuring swift and reliable performance.</p>
+                </div>
+                <video controls>
+                    <source src="C:\Users\lenovo\Desktop\resume\ai enhanced career guidance system for personalised career pathways SIH 2024 PSno. 1781.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="project">
+                <div class="project-description">
+                    <h3>FINE-TUNING LLAMA3.1 FOR PERSONALISED CAREER GUIDANCE (PRODUCTION LEVEL)</h3>
+                    <p>This project aims to fine-tune the LLaMA 3.1 model to provide tailored career advice based on individual user profiles, preferences, skills, and aspirations. By harnessing the capabilities of LLaMA 3.1, I created a robust system that offers users personalized recommendations, insights, and resources to navigate their career paths effectively.</p>
+                </div>
+                <video controls>
+                    <source src="C:\Users\lenovo\Desktop\resume\Animated-Website-Template-master\AI career guidance.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            
+
+
+
+            <!-- Add more projects as needed -->
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="section" id="skills">
+        <h1>Skills</h1>
+        <div class="skills">
+            <div class="skill-category">
+                <h4>Languages</h4>
+                <ul>
+                    <li>C++</li>
+                    <li>Python</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>M. L. Libraries</h4>
+                <ul>
+                    <li>PyTorch</li>
+                    <li>TensorFlow</li>
+                    <li>scikit-learn</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Database</h4>
+                <ul>
+                    <li>MYSQL</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Backend</h4>
+                <ul>
+                    <li>Flask</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Cloud Platforms</h4>
+                <ul>
+                    <li>AWS</li>
+                    <li>Google Colab</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Tools</h4>
+                <ul>
+                    <li>Git</li>
+                    <li>Docker</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>All rights reserved &copy; 2024</p>
+    </footer>
+</body>
+</html>

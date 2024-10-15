@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keyword" content="animations,animated,style,look">
+
+	<title>Emily Black</title>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/background.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/type-it.js"></script>
+
+	<style>
+		/* Circular Image Style */
+		.circular-image {
+			position: absolute;
+			top: 20px; /* Adjust as needed */
+			right: 20px; /* Adjust as needed */
+			width: 200px; /* Adjust size as needed */
+			height: 200px; /* Adjust size as needed */
+			border-radius: 50%; /* Makes the image circular */
+			overflow: hidden; /* Ensures the image stays within the circle */
+			border: 2px solid white; /* Optional border */
+		}
+
+		.circular-image img {
+			width: 100%; /* Ensure the image fills the container */
+			height: auto; /* Maintain aspect ratio */
+		}
+
+	</style>
+</head>
+<body>
+	<div id="particles-js"></div>
+	<script src="js/particles.min.js"></script>
+	<script src="js/background.js"></script>
+
+	<div class="container">
+		<span class="type-it" style="color:#0b0b0b;"></span>
+	</div>
+
+	<!-- Circular Image -->
+	<div class="circular-image">
+		<img src="C:\Users\lenovo\Desktop\resume\IMG_20240417_163007.jpg" alt="Profile Image" />
+	</div>
+
+	<script>
+		var first = "Hello,";
+		var second = "I'm productive <strong>DEEP LEARNING ENGINEER</strong>.";
+		var third = "working in field of computer vision";
+		var fourth = "pursuing my Bachelor's(hons.) in <strong>COMPUTER SCIENCE </strong> (major) and <strong>STATISTICS</strong>(minor) from <u> University of Delhi<u>";
+		$('.type-it').typeIt({
+			strings: [first, second, third, fourth]
+		});
+	</script>
+</body>
+</html>

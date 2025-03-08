@@ -1,0 +1,37 @@
+ANKIT KUMAR
+[Email Address--ankitsuperku@gmail.com]
+[GitHub Profile--https://github.com/ANKIT0017]
+
+Professional Summary
+Productive Deep Learning Engineer with a solid foundation in computer vision, natural language processing, and audio processing. Currently pursuing a Bachelor’s (Hons.) in Computer Science (Major) and Statistics (Minor) from the University of Delhi. Proven experience in developing advanced AI models for real-time applications and personalized solutions. Adept at leveraging deep learning frameworks to solve complex problems and enhance user experiences.
+
+Education
+Bachelor of Science (Hons.) in Computer Science
+Minor in Statistics
+University of Delhi | Expected Graduation: [2027]
+
+Skills
+Programming Languages: Python, JavaScript, C++
+Machine Learning Libraries: TensorFlow, PyTorch, scikit-learn
+Database Management: MySQL
+Backend Development: Flask
+Cloud Platforms: AWS, Google Colab
+Tools: Git, Docker
+Projects
+Real-Time Human Detection and Face Recognition Model
+
+Developed an AI system capable of accurately identifying and recognizing individuals in dynamic environments.
+Leveraged advanced computer vision techniques and deep learning algorithms to process live video feeds with minimal latency, ensuring swift performance in real-time applications.
+Fine-Tuning LLaMA 3.1 for Personalized Career Guidance (Production Level)
+
+Fine-tuned the LLaMA 3.1 model to provide tailored career advice based on individual user profiles, preferences, and skills.
+Created a robust system offering personalized recommendations, insights, and resources to guide users effectively in their career paths.
+Experience
+
+Collaborated on multiple AI projects, focusing on image and audio processing.
+Assisted in developing machine learning models for real-time applications, enhancing system performance and accuracy.
+Certifications
+[RESEACH AS MEMBER] | [PGDAV COLLEGE(DU)] | [2024]
+[SIH] | [GOVT. OF INDIA] | [2025]
+References
+Available upon request.

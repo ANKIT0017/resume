@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +12,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/background.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    
+
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/type-it.js"></script>
@@ -170,7 +171,7 @@
             .centered-text {
                 font-size: 4em;
                 top: 12%; /* Adjust the position to move it up */
-        
+
             }
             .skill-category {
                 width: 90%;
@@ -219,11 +220,32 @@
             font-size: medium; /* Ensure it sits above other elements */
         }
 
-        /* Hide particles below featured projects */
+                /* Hide particles below featured projects */
         .projects-wrapper {
             position: relative;
             z-index: 2; /* Ensure projects sit above the particles */
-            margin-top: 45%;
+            margin-top: 750px; /* Default margin for larger screens */
+        }
+
+        /* Tablet (screen width between 768px and 1024px) */
+        @media (max-width: 1024px) {
+            .projects-wrapper {
+                margin-top: 700px; /* Adjust for tablet */
+            }
+        }
+
+        /* Mobile (screen width below 768px) */
+        @media (max-width: 768px) {
+            .projects-wrapper {
+                margin-top: 700px; /* Adjust for mobile */
+            }
+        }
+
+        /* Extra Small (very small screens) */
+        @media (max-width: 480px) {
+            .projects-wrapper {
+                margin-top: 650px; /* Adjust for extra small screens */
+            }
         }
 
         #particles-js {
@@ -234,10 +256,25 @@
             bottom: 0;
             z-index: 1; /* Ensure particles are below the projects */
         }
+
+        /* Spider Canvas */
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Make sure the canvas doesn't block other content */
+            z-index: 5; /* Make sure it's above the particles but below other content */
+        }
     </style>
 </head>
+
 <body>
+    <!-- Particles background -->
     <div id="particles-js"></div>
+
+    <!-- Spider following cursor canvas -->
+    <canvas id="canvas"></canvas>
+
     <script src="js/particles.min.js"></script>
     <script src="js/background.js"></script>
 
@@ -253,20 +290,21 @@
 
     <script>
         // Existing strings for typing animation
-        var first = "Hello,"; 
-        var second = "I'm <strong>-ANKIT KUMAR-</strong>."; 
-        var third = "Get to know <a href='about.html'>me</a>."; 
+        var first = "<span style='color: purple;'>Hello,</span>"; 
+        var second = "<span style='color: purple;'>I'm <strong>-ANKIT KUMAR-</strong>.</span>"; 
+        var third = "<span style='color: #e74c3c; shadow:large'>Get to know </span><a href='about.html'>me</a>";  // 'me' has a different color
         var fourth = "<a href='ANKIT_KUMAR.pdf' target='_blank'>Resume</a> • <a href='https://github.com/ANKIT0017' target='_blank'>GitHub</a> • <a href='mailto:ankitsuperku@gmail.com' target='_blank'>Email</a>";
-        var fifth ="🢃"; // Arrow symbol
+        var fifth ="<span style='color: purple;'>🢃</span>"; // Arrow symbol
     
         // Initialize typing animation
         $('.type-it').typeIt({
             strings: [first, second, third, fourth, fifth],
             speed: 30,
             breakDelay: 100,
-            autoStart: true
+            autoStart: true,
+            
         });
-    
+
         // Function to check if element is in viewport
         function isElementInViewport(el) {
             var rect = el.getBoundingClientRect();
@@ -277,10 +315,10 @@
                 rect.right <= (window.innerWidth || document.documentElement.clientWidth)
             );
         }
-    
+
         // Show projects and skills when Projects section is in view
         function checkVisibility() {
-            if (window.innerWidth > 768) { // Only add classes if width is greater than 576px
+            if (window.innerWidth > 1100) { // Only add classes if width is greater than 576px
                 if (isElementInViewport(document.getElementById('Projects'))) {
                     $('.project').addClass('visible'); // Show projects
     
@@ -295,27 +333,26 @@
                 $('.skills').addClass('visible');
             }
         }
-    
+
         // Listen for scroll and touchmove events
         $(window).on('scroll touchmove', function() {
             checkVisibility(); // Check visibility on scroll and touch move
         });
-    
+
         // Initial check to handle page load
         $(document).ready(function() {
             checkVisibility(); // Ensure visibility on load
         });
     </script>
-    
-        
+
     <!-- Projects Section -->
-    <div class="projects-wrapper">
+    <div class="projects-wrapper" >
         <div class="section" id="Projects">
             <h1>Featured Projects</h1>
             <div class="project">
                 <div class="project-description">
                     <h3>REAL TIME HUMAN DETECTION AND FACE RECOGNITION MODEL</h3>
-                    <p>The Real-Time Human Detection and Face Recognition Model is an advanced artificial intelligence system designed to accurately identify and recognize individuals in dynamic environments. Leveraging cutting-edge computer vision techniques and deep learning algorithms, this model is capable of processing live video feeds with minimal latency, ensuring swift and reliable performance.</p>
+                    <p>The Real-Time Human Detection and Face Recognition Model is an advanced artificial intelligence system designed to accurately identify and recognize individuals in dynamic environments...</p>
                 </div>
                 <video controls>
                     <source src="real-time-face-recognition.mp4" type="video/mp4">
@@ -325,19 +362,13 @@
             <div class="project">
                 <div class="project-description">
                     <h3>FINE-TUNING LLAMA3.1 FOR PERSONALISED CAREER GUIDANCE (PRODUCTION LEVEL)</h3>
-                    <p>This project aims to fine-tune the LLaMA 3.1 model to provide tailored career advice based on individual user profiles, preferences, skills, and aspirations. By harnessing the capabilities of LLaMA 3.1, I created a robust system that offers users personalized recommendations, insights, and resources to navigate their career paths effectively.</p>
+                    <p>This project aims to fine-tune the LLaMA 3.1 model to provide tailored career advice based on individual user profiles...</p>
                 </div>
                 <video controls>
                     <source src="finetuning.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-
-            
-
-
-
-            <!-- Add more projects as needed -->
         </div>
     </div>
 
@@ -351,6 +382,7 @@
                     <li>C++</li>
                     <li>Python</li>
                     <li>JavaScript</li>
+                    
                 </ul>
             </div>
             <div class="skill-category">
@@ -365,12 +397,14 @@
                 <h4>Database</h4>
                 <ul>
                     <li>MYSQL</li>
+                    <li>MONGO-DB</li>
                 </ul>
             </div>
             <div class="skill-category">
                 <h4>Backend</h4>
                 <ul>
                     <li>Flask</li>
+                    <li>Express</li>
                 </ul>
             </div>
             <div class="skill-category">
@@ -394,5 +428,7 @@
     <footer>
         <p>All rights reserved &copy; 2024</p>
     </footer>
+
+    <script src="js/spider-cursor.js"></script>
 </body>
 </html>

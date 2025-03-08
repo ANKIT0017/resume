@@ -12,3 +12,14 @@
 
     margin: auto;
 }
+.type-it a {
+    color: #3498db; /* Change this to your desired link color */
+    text-decoration: none; /* Optional: remove the underline */
+    text-shadow: black;
+}
+
+.type-it a:hover {
+    color: #e74c3c; /* Optional: Change color on hover */
+    text-shadow: rgb(211, 21, 21);
+
+}

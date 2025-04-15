@@ -2,433 +2,449 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keyword" content="animations, animated, style, look">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="animations, animated, style, look">
+  <title>ANKIT KUMAR</title>
 
-    <title>ANKIT KUMAR</title>
+  <!-- Google Fonts for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/background.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/type-it.js"></script>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/background.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f4f4f4;
+      overflow-x: hidden;
+    }
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/type-it.js"></script>
+    a {
+      color: #3498db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-    <style>
-        /* Circular Image Style */
-        .circular-image {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid white;
-            z-index: 10;
-        }
+    a:hover {
+      color: #2980b9;
+    }
 
-        .circular-image img {
-            width: 100%;
-            height: auto;
-        }
+    header, footer, main {
+      width: 100%;
+      overflow: hidden;
+    }
 
-        /* Centered Text Style */
-        .centered-text {
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            color: #0b0b0b;
-            font-size: 7em;
-            z-index: 10;
-        }
+    /* Hero Section (Spline Viewer + Overlay) */
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+    }
 
-        /* Section Styles */
-        .section {
-            padding: 30px 20px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            background: rgb(255, 255, 255);
-            border-radius: 10px;
-            margin-top: 0px;
-        }
+    .spline-container {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
 
-        h2 {
-            margin-top: 30px;
-            font-size: 30px;
-        }
+    /* Overlay is set to not capture pointer events so the Spline remains interactive */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #0b0b0b;
+      text-align: center;
+      pointer-events: none; /* Let events pass through by default */
+    }
+    
+    /* Child container that holds clickable text */
+    .hero-overlay .clickable-content {
+      pointer-events: auto; /* This container and its children will be interactive */
+    }
 
-        .project {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 50px;
-            flex-wrap: wrap;
-            opacity: 0; /* Start hidden */
-            transform: translateX(-100%); /* Start off-screen */
-            transition: transform 1.5s ease, opacity 0.5s ease; /* Smooth transition */
-        }
+    /* Typing Animation Text */
+    .hero-overlay .type-it {
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 1.2;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
 
-        .project.visible {
-            opacity: 1; /* Make visible */
-            transform: translateX(0); /* Slide in */
-        }
+    /* Main Content Container (Skills & Projects) */
+    .content-container {
+      width: 100% ;
+      padding: 40px 80px;
+      background: #fff;
+      border-radius: 10px;
+      margin: -80px auto 40px;
+      position: relative;
+      z-index: 10;
+      max-width: 1600px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
 
-        .project-description {
-            flex: 1;
-            text-align: left;
-            margin-right: 2px;
-            font-size: 2em;
-        }
+    /* Skills Section */
+    #Skills {
+      margin-bottom: 40px;
+    }
 
-        .project video {
-            max-width: 420px;
-            width: 90%;
-            height: auto;
-        }
+    #Skills h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      color: #333;
+    }
 
-        .skills {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            text-align: left;
-            margin-top: 10px;
-            opacity: 0; /* Start hidden */
-            transform: translateY(50px); /* Start below */
-            transition: transform 1s ease, opacity 0.5s ease; /* Smooth transition */
-        }
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
 
-        .skills.visible {
-            opacity: 1; /* Make visible */
-            transform: translateY(0); /* Slide in */
-        }
+    .skill-category {
+      background: #fafafa;
+      border: 1px solid #e3e3e3;
+      border-radius: 8px;
+      padding: 20px;
+      width: calc(33% - 40px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        /* .skills-title {
-            font-size: 6.5em;
-        } */
+    .skill-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
 
-        h3 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
+    .skill-category h3 {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
 
-        .skill-category {
-            width: 12%;
-            margin: 10px 0;
-            font-size: medium;
-        }
+    .skill-category ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
 
-        /* Media Queries for Responsiveness */
-        @media (max-width: 1200px) {
-            .project-description {
-                font-size: 1.5em;
-            }
-            .skills-title {
-                font-size: 4em;
-            }
-            .skill-category {
-                width: 25%;
-            }
-        }
+    .skill-category li {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #555;
+    }
 
-        @media (max-width: 992px) {
-            .circular-image {
-                width: 150px;
-                height: 150px;
-            }
-            .centered-text {
-                font-size: 3.5em;
-            }
-            h2 {
-                font-size: 25px;
-            }
-            .project-description {
-                font-size: 1.2em;
-            }
-            .skills-title {
-                font-size: 3.5em;
-            }
-            .skill-category {
-                width: 45%;
-            }
-        }
+    .skill-category li img {
+      width: 60px;
+      height: 50px;
+      margin-bottom: 5px;
+      transition: transform 0.3s ease;
+    }
 
-        @media (max-width: 768px) {
-            .project {
-                flex-direction: column;
-                align-items: center;
-            }
-            .project-description {
-                text-align: center;
-                margin-right: 0;
-            }
-            .centered-text {
-                font-size: 4em;
-                top: 12%; /* Adjust the position to move it up */
+    .skill-category li img:hover {
+      transform: scale(1.2);
+    }
 
-            }
-            .skill-category {
-                width: 90%;
-                text-align: center;
-            }
-        }
+    /* Projects Section */
+    .projects-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 40px 0;
+      gap: 30px;
+    }
 
-        @media (max-width: 576px) {
-            .circular-image {
-                width: 120px;
-                height: 120px;
-            }
-            .centered-text {
-                font-size: 3em;
-                top: 8%; /* Adjust the position to move it up */
-                text-align: left;
-                left: 34%;
-            }
-            h2 {
-                font-size: 20px;
-            }
-            .circular-image{
-                top: 5%;
-            }
-            .project-description {
-                font-size: 1em;
-            }
-            .projects-wrapper {
-                 margin-top: 15%; /* Set top margin to 15% */
-            }
-            .skills-title {
-                font-size: 3em;
-            }
-        }
+    .project {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      width: 100%;
+      max-width: 550px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
 
-        /* Footer Style */
-        footer {
-            background-color: #4ea7f5; /* Green background */
-            color: white; /* White text */
-            text-align: center; /* Centered text */
-            padding: 10px 0; /* Vertical padding */
-            position: relative; /* Position relative for placement */
-            bottom: 0; /* Align at the bottom */
-            width: 100%; /* Full width */
-            z-index: 10;
-            font-size: medium; /* Ensure it sits above other elements */
-        }
+    .project:hover {
+      transform: translateY(-5px);
+    }
 
-                /* Hide particles below featured projects */
-        .projects-wrapper {
-            position: relative;
-            z-index: 2; /* Ensure projects sit above the particles */
-            margin-top: 750px; /* Default margin for larger screens */
-        }
+    .project-description h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
 
-        /* Tablet (screen width between 768px and 1024px) */
-        @media (max-width: 1024px) {
-            .projects-wrapper {
-                margin-top: 700px; /* Adjust for tablet */
-            }
-        }
+    .project-description p {
+      color: #555;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
 
-        /* Mobile (screen width below 768px) */
-        @media (max-width: 768px) {
-            .projects-wrapper {
-                margin-top: 700px; /* Adjust for mobile */
-            }
-        }
+    .project video {
+      width: 100%;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
 
-        /* Extra Small (very small screens) */
-        @media (max-width: 480px) {
-            .projects-wrapper {
-                margin-top: 650px; /* Adjust for extra small screens */
-            }
-        }
+    h1, h2, h3 {
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
 
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1; /* Ensure particles are below the projects */
-        }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
 
-        /* Spider Canvas */
-        #canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            pointer-events: none; /* Make sure the canvas doesn't block other content */
-            z-index: 5; /* Make sure it's above the particles but below other content */
-        }
-    </style>
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      .hero-overlay .type-it {
+        font-size: 2rem;
+      }
+      .skill-category {
+        width: calc(50% - 30px);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .skill-category {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Particles background -->
-    <div id="particles-js"></div>
-
-    <!-- Spider following cursor canvas -->
-    <canvas id="canvas"></canvas>
-
-    <script src="js/particles.min.js"></script>
-    <script src="js/background.js"></script>
-
-    <!-- Centered Text -->
-    <div class="centered-text">
+  <!-- Hero Section with Spline Viewer -->
+  <header class="hero">
+    <div class="spline-container">
+      <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+      <spline-viewer url="https://prod.spline.design/0Z99jWIfx64jbk1Y/scene.splinecode"></spline-viewer>
+    </div>
+    <!-- Overlay with Animated Text and Clickable Links -->
+    <div class="hero-overlay">
+      <div class="clickable-content">
         <span class="type-it"></span>
+      </div>
     </div>
-
-    <!-- Circular Image -->
+    <!-- Optional: Circular Profile Image (currently commented out) -->
+    <!-- 
     <div class="circular-image">
-        <img src="IMG_20240417_163007.jpg" alt="Profile Image" />
+      <img src="IMG_20240417_163007.jpg" alt="Profile Image">
     </div>
+    -->
+  </header>
 
-    <script>
-        // Existing strings for typing animation
-        var first = "<span style='color: purple;'>Hello,</span>"; 
-        var second = "<span style='color: purple;'>I'm <strong>-ANKIT KUMAR-</strong>.</span>"; 
-        var third = "<span style='color: #e74c3c; shadow:large'>Get to know </span><a href='about.html'>me</a>";  // 'me' has a different color
-        var fourth = "<a href='ANKIT_KUMAR.pdf' target='_blank'>Resume</a> • <a href='https://github.com/ANKIT0017' target='_blank'>GitHub</a> • <a href='mailto:ankitsuperku@gmail.com' target='_blank'>Email</a>";
-        var fifth ="<span style='color: purple;'>🢃</span>"; // Arrow symbol
+
+  <!-- Main Content Container -->
+  <main class="content-container">
+<!-- Professional Summary Section -->
+<section id="about" style="width: 100%; background: linear-gradient(135deg, #ffffff, #f9f9f9); padding: 80px 20px;">
+    <div style="
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    ">
+      
+      <!-- Text Content -->
+      <div style="flex: 1; min-width: 300px;">
+        <h2 style="font-size: 2.5rem; font-weight: 600; margin-bottom: 25px; color: #222;">About Me</h2>
+        <p style="font-size: 1.15rem; line-height: 1.8; color: #444;">
+          I’m a passionate <strong style="color: #007BFF;">Deep Learning Engineer</strong> with hands-on experience in 
+          <strong>Computer Vision</strong>, <strong>NLP</strong>, <strong>Audio Processing</strong>, and <strong>Human Emotion Recognition</strong>.
+          <br><br>
+          I'm currently pursuing a Bachelor's (Hons.) in <strong>Computer Science</strong> (Major) and <strong>Statistics</strong> (Minor) at 
+          <u>University of Delhi</u>. I specialize in crafting intelligent, real-time systems that bridge data and human interaction.
+          <br><br>
+          My mission is to solve impactful problems through scalable AI/ML innovation rooted in academic rigor and production-grade experience.
+        </p>
+      </div>
+  
+      <!-- Profile Image -->
+      <div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 220px;">
+        <div style="
+          width: 220px;
+          height: 220px;
+          border-radius: 50%;
+          overflow: hidden;
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+          border: 5px solid #fff;
+          background: #fff;
+        ">
+          <img src="IMG_20240417_163007.jpg" alt="Profile Image" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  
+  
+  
     
-        // Initialize typing animation
-        $('.type-it').typeIt({
-            strings: [first, second, third, fourth, fifth],
-            speed: 30,
-            breakDelay: 100,
-            autoStart: true,
-            
-        });
-
-        // Function to check if element is in viewport
-        function isElementInViewport(el) {
-            var rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        // Show projects and skills when Projects section is in view
-        function checkVisibility() {
-            if (window.innerWidth > 1100) { // Only add classes if width is greater than 576px
-                if (isElementInViewport(document.getElementById('Projects'))) {
-                    $('.project').addClass('visible'); // Show projects
-    
-                    // Timer to show skills after projects
-                    setTimeout(function() {
-                        $('.skills').addClass('visible'); // Show skills
-                    }, 1000);
-                }
-            } else {
-                // For screens 576px and below, add visible class immediately
-                $('.project').addClass('visible');
-                $('.skills').addClass('visible');
-            }
-        }
-
-        // Listen for scroll and touchmove events
-        $(window).on('scroll touchmove', function() {
-            checkVisibility(); // Check visibility on scroll and touch move
-        });
-
-        // Initial check to handle page load
-        $(document).ready(function() {
-            checkVisibility(); // Ensure visibility on load
-        });
-    </script>
+    <!-- Skills Section -->
+    <section id="Skills">
+        <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 60px;">Skills</h1>
+        <div class="skills-wrapper">
+      
+          <!-- Languages -->
+          <div class="skill-category">
+            <h3>Languages</h3>
+            <ul>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo"> C++</li>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo"> Python</li>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo"> JavaScript</li>
+            </ul>
+          </div>
+      
+          <!-- ML Libraries -->
+          <div class="skill-category">
+            <h3>ML Libraries</h3>
+            <ul>
+              <li><img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" alt="PyTorch Logo"> PyTorch</li>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TensorFlow Logo"> TensorFlow</li>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit Logo"> Scikit</li>
+            </ul>
+          </div>
+      
+          <!-- Databases -->
+          <div class="skill-category">
+            <h3>Databases</h3>
+            <ul>
+              <li><img src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg" alt="MySQL Logo"> MySQL</li>
+              <li><img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg" alt="MongoDB Logo"> MongoDB</li>
+            </ul>
+          </div>
+      
+          <!-- Cloud Platforms -->
+          <div class="skill-category">
+            <h3>Cloud Platforms</h3>
+            <ul>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Colaboratory_SVG_Logo.svg" alt="Colab Logo"> Colab</li>
+            </ul>
+          </div>
+      
+          <!-- Version Control -->
+          <div class="skill-category">
+            <h3>Version Control</h3>
+            <ul>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" alt="Git Logo"> Git</li>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo"> GitHub</li>
+            </ul>
+          </div>
+      
+          <!-- MERN Stack -->
+          <div class="skill-category">
+            <h3>MERN Stack</h3>
+            <ul>
+              <li><img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB Logo"> MongoDB</li>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="Express Logo"> Express.js</li>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo"> React</li>
+              <li><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js Logo"> Node.js</li>
+            </ul>
+          </div>
+      
+        </div>
+      </section>
+      
 
     <!-- Projects Section -->
-    <div class="projects-wrapper" >
-        <div class="section" id="Projects">
-            <h1>Featured Projects</h1>
-            <div class="project">
-                <div class="project-description">
-                    <h3>REAL TIME HUMAN DETECTION AND FACE RECOGNITION MODEL</h3>
-                    <p>The Real-Time Human Detection and Face Recognition Model is an advanced artificial intelligence system designed to accurately identify and recognize individuals in dynamic environments...</p>
-                </div>
-                <video controls>
-                    <source src="real-time-face-recognition.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+    <section id="Projects">
+        <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 60px;text-align: center;">Featured Projects</h1>
+        <div class="projects-wrapper">
+      
+          <!-- Project 1: Multimodal Architecture -->
+          <article class="project">
+            <div class="project-description">
+              <h3>Multimodal Architecture for human level tasks using LANGCHAIN</h3>
+              <p>This powerful system can be used for various automation tasks requiring critical human thinking and validation. The architecture utilizes opensource LLMs like Llama and any other LLm also be used.</p>
+              <p>
+                <a href="https://github.com/ANKIT0017/Multi_Modal_using_Ollama" target="_blank" style="color: #3498db;">View on GitHub</a>
+              </p>
             </div>
-            <div class="project">
-                <div class="project-description">
-                    <h3>FINE-TUNING LLAMA3.1 FOR PERSONALISED CAREER GUIDANCE (PRODUCTION LEVEL)</h3>
-                    <p>This project aims to fine-tune the LLaMA 3.1 model to provide tailored career advice based on individual user profiles...</p>
-                </div>
-                <video controls>
-                    <source src="finetuning.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+          </article>
+      
+          <!-- Project 2: Real-Time Face Recognition -->
+          <article class="project">
+            <div class="project-description">
+              <h3>Real-Time Human Detection and Face Recognition Model</h3>
+              <p>This project involves an advanced AI system that detects and recognizes human faces in real-time scenarios, delivering robust security and analytics solutions.</p>
             </div>
+            <video controls>
+              <source src="real-time-face-recognition.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </article>
+      
+          <!-- Project 3: Fine-Tuning LLaMA3.1 -->
+          <article class="project">
+            <div class="project-description">
+              <h3>Fine-Tuning LLaMA3.1 for Personalized Career Guidance</h3>
+              <p>This production-level project refines LLaMA3.1 to provide tailored career advice by leveraging advanced machine learning techniques adapted to individual user profiles.</p>
+            </div>
+            <video controls>
+              <source src="finetuning.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </article>
+      
         </div>
-    </div>
+      </section>
+      
+  </main>
 
-    <!-- Skills Section -->
-    <div class="section" id="skills">
-        <h1>Skills</h1>
-        <div class="skills">
-            <div class="skill-category">
-                <h4>Languages</h4>
-                <ul>
-                    <li>C++</li>
-                    <li>Python</li>
-                    <li>JavaScript</li>
-                    
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h4>M. L. Libraries</h4>
-                <ul>
-                    <li>PyTorch</li>
-                    <li>TensorFlow</li>
-                    <li>scikit-learn</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h4>Database</h4>
-                <ul>
-                    <li>MYSQL</li>
-                    <li>MONGO-DB</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h4>Backend</h4>
-                <ul>
-                    <li>Flask</li>
-                    <li>Express</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h4>Cloud Platforms</h4>
-                <ul>
-                    <li>AWS</li>
-                    <li>Google Colab</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h4>Tools</h4>
-                <ul>
-                    <li>Git</li>
-                    <li>Docker</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+  <!-- Footer -->
+  <footer>
+    <p>All rights reserved &copy; 2025</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <p>All rights reserved &copy; 2024</p>
-    </footer>
+  <!-- Typing Animation Script -->
+  <script>
+    // Professional and engaging introductory text for the hero section
+    var first = "<span style='color: white;'>Hello,</span>";
+    var second = "<span style='color: white;'>I'm <strong>-ANKIT KUMAR-</strong>.</span>";
+    var third = "<span style='color: white;'>Get to know </span><a href='#about'>me</a>";
+    var fourth = "<a href='ANKIT_KUMAR.pdf' target='_blank'>Resume</a> • <a href='https://github.com/ANKIT0017' target='_blank'>GitHub</a> • <a href='mailto:ankitsuperku@gmail.com' target='_blank'>Email</a>";
+    var fifth = "<span style='color: white;'>🢃</span>"; // Professional arrow symbol
 
-    <script src="js/spider-cursor.js"></script>
+    $('.type-it').typeIt({
+      strings: [first, second, third, fourth, fifth],
+      speed: 30,
+      breakDelay: 100,
+      autoStart: true,
+    });
+  </script>
 </body>
+
 </html>

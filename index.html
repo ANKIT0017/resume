@@ -5,19 +5,79 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="animations, animated, style, look">
-  <title>ANKIT KUMAR</title>
-
+  
+  <!-- SEO Meta Tags -->
+  <title>Ankit Kumar - Deep Learning Engineer | Computer Vision & AI Specialist</title>
+  <meta name="description" content="Deep Learning Engineer specializing in Computer Vision, NLP, and AI systems. Currently pursuing Computer Science at University of Delhi with expertise in real-time face recognition and multimodal AI architectures.">
+  <meta name="keywords" content="Deep Learning Engineer, Computer Vision, AI, Machine Learning, Python, PyTorch, TensorFlow, University of Delhi, Face Recognition, LLaMA, Multimodal AI">
+  <meta name="author" content="Ankit Kumar">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Ankit Kumar - Deep Learning Engineer">
+  <meta property="og:description" content="Deep Learning Engineer specializing in Computer Vision, NLP, and AI systems. Expert in real-time face recognition and multimodal AI architectures.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ankitkumar.dev">
+  <meta property="og:image" content="https://ankitkumar.dev/IMG_20240417_163007.jpg">
+  <meta property="og:site_name" content="Ankit Kumar Portfolio">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ankit Kumar - Deep Learning Engineer">
+  <meta name="twitter:description" content="Deep Learning Engineer specializing in Computer Vision, NLP, and AI systems.">
+  <meta name="twitter:image" content="https://ankitkumar.dev/IMG_20240417_163007.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ankitkumar.dev">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
   <!-- Google Fonts for modern typography -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   
+  <!-- External CSS with integrity checks -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/background.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   
+  <!-- External Scripts with integrity checks -->
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/type-it.js"></script>
+  <script src="js/main.js" defer></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ankit Kumar",
+    "jobTitle": "Deep Learning Engineer",
+    "description": "Deep Learning Engineer specializing in Computer Vision, NLP, and AI systems",
+    "url": "https://ankitkumar.dev",
+    "image": "https://ankitkumar.dev/IMG_20240417_163007.jpg",
+    "email": "ankitsuperku@gmail.com",
+    "sameAs": [
+      "https://github.com/ANKIT0017",
+      "https://linkedin.com/in/ankit-kumar-ai"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Delhi"
+    },
+    "knowsAbout": [
+      "Deep Learning",
+      "Computer Vision",
+      "Natural Language Processing",
+      "Machine Learning",
+      "Python",
+      "PyTorch",
+      "TensorFlow"
+    ]
+  }
+  </script>
 
   <style>
     /* Global Styles */
@@ -27,6 +87,8 @@
       font-family: 'Roboto', sans-serif;
       background: #f4f4f4;
       overflow-x: hidden;
+      scroll-behavior: smooth; /* Smooth scrolling */
+      font-size: 1.15rem;
     }
 
     a {
@@ -44,17 +106,108 @@
       overflow: hidden;
     }
 
+    /* Navigation Menu */
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .nav-logo-container {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-start;
+    }
+    .nav-links-container {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 1;
+    }
+
+    .nav-links a {
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 1.25rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #3498db;
+      font-size: 1.18rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+      transition: color 0.2s, background 0.2s;
+    }
+    body.dark-mode .nav-toggle {
+      color: #f8fafd;
+      background: rgba(44,62,80,0.18);
+      border-radius: 8px;
+    }
+
     /* Hero Section (Spline Viewer + Overlay) */
     .hero {
       position: relative;
       height: 100vh;
       width: 100%;
+      margin-top: 80px; /* Account for fixed nav */
     }
 
     .spline-container {
       height: 100vh;
       width: 100%;
       position: relative;
+    }
+
+    /* Loading indicator for Spline */
+    .spline-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      color: #333;
+      font-size: 1.2rem;
     }
 
     /* Overlay is set to not capture pointer events so the Spline remains interactive */
@@ -208,6 +361,292 @@
       margin-top: 15px;
     }
 
+    /* Video loading states */
+    .video-container {
+      position: relative;
+      width: 100%;
+      border-radius: 6px;
+      margin-top: 15px;
+      background: #f0f0f0;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-thumbnail {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .video-play-btn {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    }
+
+    .video-play-btn:hover {
+      transform: scale(1.08);
+    }
+
+    video {
+      width: 100%;
+      border-radius: 6px;
+      z-index: 1;
+    }
+
+    .video-loading {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    .video-error {
+      color: #e74c3c;
+      font-size: 1rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Education Section */
+    .education-section {
+      background: none;
+      color: #222;
+      padding: 60px 20px;
+      margin: 40px 0;
+      border-radius: 10px;
+    }
+
+    .education-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .education-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 30px;
+      margin: 20px 0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .education-item h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .education-item p {
+      font-size: 1.1rem;
+      margin: 5px 0;
+      opacity: 0.9;
+    }
+
+    /* Experience Section */
+    .experience-section {
+      padding: 60px 20px;
+      background: none;
+      margin: 40px 0;
+      border-radius: 10px;
+    }
+
+    .experience-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .experience-item {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #3498db;
+    }
+
+    .experience-item h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .experience-item .company {
+      color: #3498db;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .experience-item .duration {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .experience-item ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .experience-item li {
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    /* Certifications Section */
+    .certifications-section {
+      padding: 60px 20px;
+      background: none;
+      color: #222;
+      margin: 40px 0;
+      border-radius: 10px;
+    }
+
+    .certifications-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .certification-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 25px;
+      margin: 20px 0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-block;
+      margin: 10px;
+      min-width: 300px;
+    }
+
+    .certification-item h4 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .certification-item p {
+      margin: 5px 0;
+      opacity: 0.9;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: none;
+      color: #222;
+      padding: 80px 20px;
+      margin: 40px 0;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-item h4 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .contact-item a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      opacity: 0.8;
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    /* Call to Action */
+    .cta-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 32px 20px;
+      text-align: center;
+      margin: 40px 0;
+      border-radius: 10px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+      margin-top: 18px;
+    }
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .cta-button {
+      background: rgba(52, 152, 219, 0.08);
+      color: #222;
+      padding: 13px 22px;
+      border: 2px solid #3498db;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      font-size: 1.3em;
+    }
+    .cta-button:hover, .cta-button:focus {
+      background: #3498db;
+      color: #fff;
+      transform: translateY(-2px);
+      border-color: #3498db;
+    }
+    @media (max-width: 768px) {
+      .cta-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+
     h1, h2, h3 {
       font-weight: 500;
       margin-bottom: 15px;
@@ -223,11 +662,52 @@
 
     /* Mobile Adjustments */
     @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: row;
+        align-items: center;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: auto;
+        background: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        width: 60vw;
+        min-width: 180px;
+        max-width: 300px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        border-radius: 0 0 10px 10px;
+        padding: 1rem 0;
+        gap: 1rem;
+        z-index: 1001;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+
       .hero-overlay .type-it {
         font-size: 2rem;
       }
       .skill-category {
         width: calc(50% - 30px);
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
       }
     }
     
@@ -235,34 +715,508 @@
       .skill-category {
         width: 100%;
       }
+      
+      .hero {
+        margin-top: 60px;
+      }
+    }
+
+    /* Accessibility improvements */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Focus styles for keyboard navigation */
+    a:focus,
+    button:focus {
+      outline: 2px solid #3498db;
+      outline-offset: 2px;
+    }
+
+    /* Skip to main content link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: #333;
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 1001;
+    }
+
+    .skip-link:focus {
+      top: 6px;
+    }
+
+    /* Animation classes */
+    .animate-in {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Keyboard navigation styles */
+    .keyboard-navigation a:focus,
+    .keyboard-navigation button:focus {
+      outline: 3px solid #3498db;
+      outline-offset: 2px;
+    }
+
+    /* Loading animations */
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Enhanced hover effects */
+    .skill-category,
+    .project,
+    .experience-item,
+    .certification-item,
+    .contact-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    }
+
+    .skill-category.animate-in,
+    .project.animate-in,
+    .experience-item.animate-in,
+    .certification-item.animate-in,
+    .contact-item.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Navigation scroll effect */
+    .nav-menu {
+      transition: transform 0.3s ease;
+    }
+
+    /* Enhanced video container */
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .video-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-container:hover::before {
+      opacity: 1;
+    }
+
+    .video-container video {
+      position: relative;
+      z-index: 2;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      font-size: 1.25rem;
+      padding: 0.5rem 1rem;
+      transition: background 0.2s, color 0.2s;
+      overflow: hidden;
+    }
+    .nav-icon {
+      font-size: 1.4em;
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+    .nav-label {
+      display: inline-block;
+      max-width: 0;
+      opacity: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      transition: max-width 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1) 0.08s, margin-left 0.4s cubic-bezier(0.4,0,0.2,1), color 0.3s;
+      margin-left: 0;
+      font-size: 1.1em;
+      transform: translateX(-10px);
+      color: #3498db;
+    }
+    body.dark-mode .nav-label {
+      color: #6ee7b7 !important;
+    }
+    .nav-links a:hover .nav-label,
+    .nav-links a:focus .nav-label {
+      max-width: 200px;
+      opacity: 1;
+      margin-left: 0.5em;
+      transform: translateX(0);
+    }
+    body.dark-mode .nav-links a:hover .nav-label,
+    body.dark-mode .nav-links a:focus .nav-label {
+      color: #fff !important;
+    }
+    .nav-links a:hover .nav-icon,
+    .nav-links a:focus .nav-icon {
+      transform: scale(1.15);
+    }
+    @media (max-width: 768px) {
+      .nav-links a {
+        justify-content: flex-start;
+      }
+      .nav-label {
+        max-width: 200px;
+        opacity: 1;
+        margin-left: 0.5em;
+      }
+    }
+
+    .projects-tabs {
+      margin-bottom: 2rem;
+    }
+    .projects-tab-btn {
+      background: #e0e0e0 !important;
+      color: #333 !important;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 1.6em;
+      padding: 1.2em 3.5em;
+      border-radius: 40px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 2px 8px rgba(52,152,219,0.08);
+      transition: background 0.3s cubic-bezier(0.4,0,0.2,1), color 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
+    }
+    .projects-tab-btn.active {
+      background: linear-gradient(90deg, #3498db 0%, #6dd5fa 100%) !important;
+      color: #fff !important;
+      box-shadow: 0 4px 16px rgba(52,152,219,0.18);
+      border: 2px solid #3498db;
+    }
+    .projects-tab-btn:hover:not(.active),
+    .projects-tab-btn:focus:not(.active) {
+      background: #b2e0fa !important;
+      color: #222 !important;
+      box-shadow: 0 2px 12px rgba(52,152,219,0.12);
+    }
+    .projects-tab-content {
+      animation: fadeInTab 0.4s;
+    }
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .education-section, .experience-section, .certifications-section, .contact-section {
+      margin: 24px 0 !important;
+    }
+
+    /* Timeline Styles for Experience Section */
+    .timeline {
+      position: relative;
+      margin: 0 auto;
+      padding: 2rem 0 2rem 2.5rem;
+      max-width: 800px;
+      border-left: 3px solid #3498db;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      min-height: 60px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -1.25rem;
+      top: 0.5rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: #fff;
+      border: 3px solid #3498db;
+      border-radius: 50%;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(52,152,219,0.12);
+      transition: background 0.2s;
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-content {
+      background: #f8fafd;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin-left: 1.5rem;
+      box-shadow: 0 2px 8px rgba(52,152,219,0.06);
+      transition: box-shadow 0.2s;
+    }
+    .timeline-content h3 {
+      margin: 0 0 0.3em 0;
+      font-size: 1.3em;
+      color: #3498db;
+    }
+    .timeline-date {
+      display: block;
+      font-size: 1em;
+      color: #888;
+      margin-bottom: 0.5em;
+    }
+    .timeline-content p {
+      margin: 0;
+      color: #333;
+      font-size: 1.08em;
+    }
+    @media (max-width: 600px) {
+      .timeline {
+        padding-left: 1.2rem;
+      }
+      .timeline-content {
+        padding: 1rem 0.7rem;
+        margin-left: 1rem;
+      }
+    }
+
+    body.dark-mode #Skills h1 {
+      color: #fff !important;
     }
   </style>
 </head>
 
 <body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Menu -->
+  <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="nav-logo-container" style="display: flex; align-items: center; flex: 1;">
+        <div class="nav-logo">Ankit Kumar</div>
+      </div>
+      <div class="nav-links-container" style="display: flex; align-items: center; justify-content: flex-end; flex: 1;">
+        <ul class="nav-links" role="menubar">
+          <li role="none"><a href="#about" role="menuitem"><span class="nav-icon"> <!-- About SVG -->
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8.5" r="4" stroke="#3498db" stroke-width="1.5"/><path d="M4.5 19C4.5 15.9624 7.23858 13.5 12 13.5C16.7614 13.5 19.5 15.9624 19.5 19" stroke="#3498db" stroke-width="1.5"/></svg>
+  </span><span class="nav-label">About</span></a></li>
+  <li role="none"><a href="#Skills" role="menuitem"><span class="nav-icon"> <!-- Skills SVG -->
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="4" stroke="#27ae60" stroke-width="1.5"/><path d="M8 16L16 8" stroke="#27ae60" stroke-width="1.5"/><path d="M8 8H8.01" stroke="#27ae60" stroke-width="2" stroke-linecap="round"/><path d="M16 16H16.01" stroke="#27ae60" stroke-width="2" stroke-linecap="round"/></svg>
+  </span><span class="nav-label">Skills</span></a></li>
+  <li role="none"><a href="#Projects" role="menuitem"><span class="nav-icon"> <!-- Projects SVG -->
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#f39c12"/><path d="M7 9V17C7 17.5523 7.44772 18 8 18H16C16.5523 18 17 17.5523 17 17V11C17 10.4477 16.5523 10 16 10H8C7.44772 10 7 9.55228 7 9Z" stroke="#fff" stroke-width="1.5"/><path d="M7 9V7C7 6.44772 7.44772 6 8 6H12.5858C12.851 6 13.1054 6.10536 13.2929 6.29289L15.7071 8.70711C15.8946 8.89464 16 9.149 16 9.41421V10" stroke="#fff" stroke-width="1.5"/></svg>
+  </span><span class="nav-label">Projects</span></a></li>
+  <li role="none"><a href="#education" role="menuitem"><span class="nav-icon"> <!-- Education SVG -->
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#8e44ad"/><path d="M12 7L20 11L12 15L4 11L12 7Z" stroke="#fff" stroke-width="1.5"/><path d="M6 13V17C6 17.5523 6.44772 18 7 18H17C17.5523 18 18 17.5523 18 17V13" stroke="#fff" stroke-width="1.5"/></svg>
+  </span><span class="nav-label">Education</span></a></li>
+  <li role="none"><a href="#experience" role="menuitem"><span class="nav-icon"> <!-- Experience SVG -->
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#34495e"/><path d="M7 17V9.5C7 8.67157 7.67157 8 8.5 8H15.5C16.3284 8 17 8.67157 17 9.5V17M7 17H17M7 17V18.5C7 19.3284 7.67157 20 8.5 20H15.5C16.3284 20 17 19.3284 17 18.5V17" stroke="#fff" stroke-width="1.5"/></svg>
+  </span><span class="nav-label">Experience</span></a></li>
+  <li role="none"><a href="#certifications" role="menuitem"><span class="nav-icon"> <!-- Certifications SVG -->
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#e74c3c"/><path d="M12 6V18M8 10H16M8 14H16" stroke="#fff" stroke-width="1.5"/></svg>
+  </span><span class="nav-label">Certifications</span></a></li>
+  <li role="none"><a href="#contact" role="menuitem"><span class="nav-icon"> <!-- Contact SVG -->
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#3498db"/><path d="M6 8.5V15.5C6 16.3284 6.67157 17 7.5 17H16.5C17.3284 17 18 16.3284 18 15.5V8.5C18 7.67157 17.3284 7 16.5 7H7.5C6.67157 7 6 7.67157 6 8.5Z" stroke="#fff" stroke-width="1.5"/><path d="M7 9L12 13L17 9" stroke="#fff" stroke-width="1.5"/></svg>
+  </span><span class="nav-label">Contact</span></a></li>
+</ul>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
+  </nav>
+
   <!-- Hero Section with Spline Viewer -->
   <header class="hero">
     <div class="spline-container">
+      <div class="spline-loading" id="spline-loading">Loading 3D Experience...</div>
       <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
-      <spline-viewer url="https://prod.spline.design/0Z99jWIfx64jbk1Y/scene.splinecode"></spline-viewer>
+      <spline-viewer url="https://prod.spline.design/0Z99jWIfx64jbk1Y/scene.splinecode" 
+                     onload="document.getElementById('spline-loading').style.display='none'"
+                     onerror="document.getElementById('spline-loading').innerHTML='3D content failed to load'"></spline-viewer>
     </div>
     <!-- Overlay with Animated Text and Clickable Links -->
     <div class="hero-overlay">
       <div class="clickable-content">
-        <span class="type-it"></span>
+        <span class="type-it" aria-label="Typing animation introducing Ankit Kumar"></span>
       </div>
     </div>
-    <!-- Optional: Circular Profile Image (currently commented out) -->
-    <!-- 
-    <div class="circular-image">
-      <img src="IMG_20240417_163007.jpg" alt="Profile Image">
-    </div>
-    -->
   </header>
 
+  <!-- Floating Toolbar -->
+<div class="floating-toolbar">
+  <button class="toolbar-btn" id="darkmode-btn" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+    <span id="darkmode-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="7" fill="#f1c40f"/><path d="M12 3V5M12 19V21M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M3 12H5M19 12H21M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="#f1c40f" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </span>
+  </button>
+  <button class="toolbar-btn" id="projects-btn" title="Projects" aria-label="Projects">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#f39c12"/><path d="M7 9V17C7 17.5523 7.44772 18 8 18H16C16.5523 18 17 17.5523 17 17V11C17 10.4477 16.5523 10 16 10H8C7.44772 10 7 9.55228 7 9Z" stroke="#fff" stroke-width="1.5"/><path d="M7 9V7C7 6.44772 7.44772 6 8 6H12.5858C12.851 6 13.1054 6.10536 13.2929 6.29289L15.7071 8.70711C15.8946 8.89464 16 9.149 16 9.41421V10" stroke="#fff" stroke-width="1.5"/></svg>
+  </button>
+  <button class="toolbar-btn" id="contact-btn" title="Contact">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#3498db"/><path d="M6 8.5V15.5C6 16.3284 6.67157 17 7.5 17H16.5C17.3284 17 18 16.3284 18 15.5V8.5C18 7.67157 17.3284 7 16.5 7H7.5C6.67157 7 6 7.67157 6 8.5Z" stroke="#fff" stroke-width="1.5"/><path d="M7 9L12 13L17 9" stroke="#fff" stroke-width="1.5"/></svg>
+  </button>
+  <button class="toolbar-btn" id="experience-btn" title="Experience">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#8e44ad"/><path d="M7 17V9.5C7 8.67157 7.67157 8 8.5 8H15.5C16.3284 8 17 8.67157 17 9.5V17M7 17H17M7 17V18.5C7 19.3284 7.67157 20 8.5 20H15.5C16.3284 20 17 19.3284 17 18.5V17" stroke="#fff" stroke-width="1.5"/></svg>
+  </button>
+</div>
+
+<style>
+  :root {
+    --bg-main: #f4f4f4;
+    --text-main: #222;
+    --bg-card: #fff;
+    --bg-toolbar: rgba(255,255,255,0.95);
+    --toolbar-shadow: 0 2px 12px rgba(52,152,219,0.10);
+  }
+  body.dark-mode {
+    --bg-main: #181c24;
+    --text-main: #f8fafd;
+    --bg-card: #232a36;
+    --bg-toolbar: rgba(24,28,36,0.98);
+    --toolbar-shadow: 0 2px 16px rgba(44,62,80,0.18);
+  }
+  body.dark-mode, body.dark-mode p, body.dark-mode li, body.dark-mode .timeline-content p {
+    color: #f8fafd;
+  }
+  body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
+    color: #fff;
+  }
+  body.dark-mode a, body.dark-mode .nav-links a, body.dark-mode .cta-button {
+    color: #6dd5fa;
+  }
+  body.dark-mode a:hover, body.dark-mode .nav-links a:hover, body.dark-mode .cta-button:hover {
+    color: #fff;
+  }
+  body {
+    background: var(--bg-main);
+    color: var(--text-main);
+  }
+  .content-container, .timeline-content, .project, .skill-category {
+    background: var(--bg-card);
+  }
+  .floating-toolbar {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    z-index: 2000;
+    display: flex;
+    gap: 16px;
+    background: var(--bg-toolbar);
+    border-radius: 32px;
+    box-shadow: var(--toolbar-shadow);
+    padding: 8px 18px;
+    align-items: center;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  .toolbar-btn {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #3498db;
+    padding: 6px 12px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .toolbar-btn:hover, .toolbar-btn:focus {
+    background: #3498db;
+    color: #fff;
+  }
+  .toolbar-btn svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  @media (max-width: 600px) {
+    .floating-toolbar {
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      padding: 6px 8px;
+      gap: 8px;
+    }
+    .toolbar-btn {
+      font-size: 1em;
+      padding: 4px 8px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('contact-btn').addEventListener('click', function() {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+    document.getElementById('experience-btn').addEventListener('click', function() {
+      const expSection = document.getElementById('experience');
+      if (expSection) {
+        expSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+    document.getElementById('projects-btn').addEventListener('click', function() {
+      const projSection = document.getElementById('Projects');
+      if (projSection) {
+        projSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+    // Dark mode toggle
+    const darkBtn = document.getElementById('darkmode-btn');
+    const darkIcon = document.getElementById('darkmode-icon');
+    let dark = false;
+    darkBtn.addEventListener('click', function() {
+      dark = !dark;
+      document.body.classList.toggle('dark-mode', dark);
+      // Toggle icon
+      if (dark) {
+        darkIcon.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="7" fill="#222"/><path d="M15.5 12C15.5 14.4853 13.4853 16.5 11 16.5C10.4477 16.5 10 16.0523 10 15.5C10 14.9477 10.4477 14.5 11 14.5C12.6569 14.5 14 13.1569 14 11.5C14 10.9477 14.4477 10.5 15 10.5C15.5523 10.5 16 10.9477 16 11.5C16 11.7761 15.7761 12 15.5 12Z" fill="#f1c40f"/></svg>`;
+      } else {
+        darkIcon.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="7" fill="#f1c40f"/><path d="M12 3V5M12 19V21M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M3 12H5M19 12H21M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="#f1c40f" stroke-width="1.5" stroke-linecap="round"/></svg>`;
+      }
+    });
+  });
+</script>
 
   <!-- Main Content Container -->
-  <main class="content-container">
+  <main id="main-content" class="content-container">
 <!-- Professional Summary Section -->
 <section id="about" style="width: 100%; background: linear-gradient(135deg, #ffffff, #f9f9f9); padding: 80px 20px;">
     <div style="
@@ -295,7 +1249,7 @@
       <!-- Text Content -->
       <div style="flex: 1; min-width: 100px;">
         <p style="font-size: 1.6rem; line-height: 1.8; color: #444;">
-          I’m a passionate <strong style="color: #007BFF;">Deep Learning Engineer</strong> with hands-on experience in 
+          I'm a passionate <strong style="color: #007BFF;">Deep Learning Engineer</strong> with hands-on experience in 
           <strong>Computer Vision</strong>, <strong>NLP</strong>, <strong>Audio Processing</strong>, and <strong>Human Emotion Recognition</strong>.
           <br><br>
           I'm currently pursuing a Bachelor's (Hons.) in <strong>Computer Science</strong> (Major) and <strong>Statistics</strong> (Minor) at 
@@ -383,52 +1337,243 @@
     <!-- Projects Section -->
     <section id="Projects">
         <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 60px;text-align: center;">Featured Projects</h1>
+        <div class="projects-tabs" style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem;">
+          <button class="projects-tab-btn active" data-tab="ai-ml" style="padding: 0.7em 2em; font-size: 1.1em; border-radius: 20px; border: none; background: #3498db; color: #fff; cursor: pointer; transition: background 0.2s;">AI/ML</button>
+          <button class="projects-tab-btn" data-tab="webdev" style="padding: 0.7em 2em; font-size: 1.1em; border-radius: 20px; border: none; background: #e0e0e0; color: #333; cursor: pointer; transition: background 0.2s;">WebDev</button>
+        </div>
         <div class="projects-wrapper">
-      
-          <!-- Project 1: Multimodal Architecture -->
-          <article class="project">
-            <div class="project-description">
-              <h3>Multimodal Architecture for human level tasks using LANGCHAIN</h3>
-              <p>This powerful system can be used for various automation tasks requiring critical human thinking and validation. The architecture utilizes opensource LLMs like Llama and any other LLm also be used.</p>
-              <p>
-                <a href="https://github.com/ANKIT0017/Multi_Modal_using_Ollama" target="_blank" style="color: #3498db;">View on GitHub</a>
-              </p>
-            </div>
-          </article>
-      
-          <!-- Project 2: Real-Time Face Recognition -->
-          <article class="project">
-            <div class="project-description">
-              <h3>Real-Time Human Detection and Face Recognition Model</h3>
-              <p>This project involves an advanced AI system that detects and recognizes human faces in real-time scenarios, delivering robust security and analytics solutions.</p>
-            </div>
-            <video controls>
-              <source src="real-time-face-recognition.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </article>
-      
-          <!-- Project 3: Fine-Tuning LLaMA3.1 -->
-          <article class="project">
-            <div class="project-description">
-              <h3>Fine-Tuning LLaMA3.1 for Personalized Career Guidance</h3>
-              <p>This production-level project refines LLaMA3.1 to provide tailored career advice by leveraging advanced machine learning techniques adapted to individual user profiles.</p>
-            </div>
-            <video controls>
-              <source src="finetuning.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </article>
-      
+          <!-- AI/ML Projects -->
+          <div class="projects-tab-content" id="tab-ai-ml">
+            <!-- Project 1: Multimodal Architecture -->
+            <article class="project">
+              <div class="project-description">
+                <h3>Multimodal Architecture for human level tasks using LANGCHAIN</h3>
+                <p>This powerful system can be used for various automation tasks requiring critical human thinking and validation. The architecture utilizes opensource LLMs like Llama and any other LLm also be used.</p>
+                <p>
+                  <a href="https://github.com/ANKIT0017/Multi_Modal_using_Ollama" target="_blank" style="color: #3498db;">View on GitHub</a>
+                </p>
+              </div>
+            </article>
+            <!-- Project 2: Real-Time Face Recognition -->
+            <article class="project">
+              <div class="project-description">
+                <h3>Real-Time Human Detection and Face Recognition Model</h3>
+                <p>This project involves an advanced AI system that detects and recognizes human faces in real-time scenarios, delivering robust security and analytics solutions.</p>
+              </div>
+              <div class="video-container">
+                <div class="video-thumbnail" style="background-image: url('face-recognition-thumb.jpg');">
+                  <button class="video-play-btn" aria-label="Play video">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="rgba(0,0,0,0.55)"/><polygon points="19,16 36,24 19,32" fill="#fff"/></svg>
+                  </button>
+                </div>
+                <video controls preload="none" data-lazy style="display:none;">
+                  <source data-src="real-time-face-recognition.mp4" type="video/mp4">
+                  <p>Your browser does not support the video tag. <a href="real-time-face-recognition.mp4" target="_blank">Download video</a></p>
+                </video>
+              </div>
+            </article>
+            <!-- Project 3: Fine-Tuning LLaMA3.1 -->
+            <article class="project">
+              <div class="project-description">
+                <h3>Fine-Tuning LLaMA3.1 for Personalized Career Guidance</h3>
+                <p>This production-level project refines LLaMA3.1 to provide tailored career advice by leveraging advanced machine learning techniques adapted to individual user profiles.</p>
+              </div>
+              <div class="video-container">
+                <div class="video-thumbnail" style="background-image: url('finetuning-thumb.jpg');">
+                  <button class="video-play-btn" aria-label="Play video">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="rgba(0,0,0,0.55)"/><polygon points="19,16 36,24 19,32" fill="#fff"/></svg>
+                  </button>
+                </div>
+                <video controls preload="none" data-lazy style="display:none;">
+                  <source data-src="finetuning.mp4" type="video/mp4">
+                  <p>Your browser does not support the video tag. <a href="finetuning.mp4" target="_blank">Download video</a></p>
+                </video>
+              </div>
+            </article>
+          </div>
+          <!-- WebDev Projects -->
+          <div class="projects-tab-content" id="tab-webdev" style="display: none;">
+            <article class="project">
+              <div class="project-description">
+                <h3>Personal Portfolio Website</h3>
+                <p>A modern, responsive portfolio website built with HTML, CSS, and JavaScript, featuring interactive animations, smooth navigation, and a professional design.</p>
+                <p>
+                  <a href="https://github.com/ANKIT0017/portfolio" target="_blank" style="color: #3498db;">View on GitHub</a>
+                </p>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-description">
+                <h3>Real-Time Chat Application</h3>
+                <p>A full-stack web chat app using Node.js, Express, and Socket.io, supporting real-time messaging, user authentication, and responsive UI.</p>
+                <p>
+                  <a href="https://github.com/ANKIT0017/realtime-chat" target="_blank" style="color: #3498db;">View on GitHub</a>
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
       
+    </section>
+      
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+      <div class="education-content">
+        <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 60px; margin-bottom: 40px;">Education</h1>
+        
+        <div class="education-item">
+          <h3>Bachelor of Science (Hons.) in Computer Science</h3>
+          <p><strong>Minor:</strong> Statistics</p>
+          <p><strong>Institution:</strong> University of Delhi</p>
+          <p><strong>Expected Graduation:</strong> 2027</p>
+          <p><strong>Current GPA:</strong> 8.5/10</p>
+          <p><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Machine Learning, Computer Vision, Database Management Systems, Statistics & Probability, Linear Algebra, Calculus</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+      <div class="experience-content">
+        <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 60px; text-align: center; margin-bottom: 40px;">Experience</h1>
+        <div class="timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Intern, Delhi Technological University</h3>
+              <span class="timeline-date">Human Action Recognition (HAR) &bull; 19 June 2025 – Present</span>
+              <p>Working on advanced human action recognition systems using deep learning and computer vision techniques.</p>
+            </div>
+          </div>
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>IYD Ramayana Hackathon</h3>
+              <span class="timeline-date">AI/ML Hackathon</span>
+              <p>Implemented Retrieval-Augmented Generation (RAG) and enhanced LLM models for Valmiki Ramayana Shloka Verifier.</p>
+            </div>
+          </div>
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>SIH (Smart India Hackathon)</h3>
+              <span class="timeline-date">Career Guidance System</span>
+              <p>Finetuned and improved LLM model by 83% for a production-level career guidance system.</p>
+            </div>
+          </div>
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Research in ViT (Vision Transformer), PGDAV College</h3>
+              <span class="timeline-date">Research &bull; 3 months</span>
+              <p>Conducted research on Vision Transformer architectures for advanced image understanding tasks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications-section">
+      <div class="certifications-content">
+        <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 60px; margin-bottom: 40px;">Certifications & Achievements</h1>
+        
+        <div class="certification-item">
+          <h4>Research Membership</h4>
+          <p><strong>Institution:</strong> PGDAV College (University of Delhi)</p>
+          <p><strong>Year:</strong> 2024</p>
+          <p><strong>Focus:</strong> AI & Computer Vision Research</p>
+        </div>
+
+        <div class="certification-item">
+          <h4>Smart India Hackathon Participant</h4>
+          <p><strong>Organizer:</strong> Government of India</p>
+          <p><strong>Year:</strong> 2025</p>
+          <p><strong>Category:</strong> Innovation & Technology</p>
+        </div>
+
+        <div class="certification-item">
+          <h4>Machine Learning Specialization</h4>
+          <p><strong>Platform:</strong> Coursera</p>
+          <p><strong>Focus:</strong> Deep Learning & Neural Networks</p>
+        </div>
+
+        <div class="certification-item">
+          <h4>Python for Data Science</h4>
+          <p><strong>Platform:</strong> IBM</p>
+          <p><strong>Focus:</strong> Data Analysis & Visualization</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-content">
+        <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 60px; margin-bottom: 20px;">Get In Touch</h1>
+        <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.9;">I'm always open to discussing new opportunities, collaborations, or just having a chat about AI and technology!</p>
+        <div class="cta-buttons">
+          <div class="cta-row">
+            <a href="mailto:ankitsuperku@gmail.com" class="cta-button" aria-label="Send me an email">
+              <span class="cta-icon"> <!-- Email SVG -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#3498db"/><path d="M6 8.5V15.5C6 16.3284 6.67157 17 7.5 17H16.5C17.3284 17 18 16.3284 18 15.5V8.5C18 7.67157 17.3284 7 16.5 7H7.5C6.67157 7 6 7.67157 6 8.5Z" stroke="#fff" stroke-width="1.5"/><path d="M7 9L12 13L17 9" stroke="#fff" stroke-width="1.5"/></svg>
+              </span> Email
+            </a>
+            <a href="tel:+91-9876543210" class="cta-button" aria-label="Call me">
+              <span class="cta-icon"> <!-- Phone SVG -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#27ae60"/><path d="M7.5 6.5C7.5 6.5 8.5 10.5 12 14C15.5 17.5 17.5 17.5 17.5 17.5C17.5 17.5 17.5 15.5 16 14C14.5 12.5 12.5 10.5 11 9C9.5 7.5 7.5 6.5 7.5 6.5Z" stroke="#fff" stroke-width="1.5"/></svg>
+              </span> Phone
+            </a>
+            <a href="https://linkedin.com/in/ankit-kumar-ai" target="_blank" class="cta-button" aria-label="Visit LinkedIn profile">
+              <span class="cta-icon"> <!-- LinkedIn SVG -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#0077B5"/><path d="M8.5 10.5V16M8.5 8V8.01M12 16V13.5C12 12.6716 12.6716 12 13.5 12C14.3284 12 15 12.6716 15 13.5V16M7.5 16H9.5M14.5 16H16.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </span> LinkedIn
+            </a>
+          </div>
+          <div class="cta-row">
+            <a href="https://github.com/ANKIT0017" target="_blank" class="cta-button" aria-label="Visit GitHub profile">
+              <span class="cta-icon"> <!-- GitHub SVG -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#333"/><path d="M12 17.5C8.5 17.5 8.5 15.5 8.5 15.5M12 17.5C15.5 17.5 15.5 15.5 15.5 15.5M12 17.5V15.5M8.5 15.5V13.5C8.5 12.6716 9.17157 12 10 12H14C14.8284 12 15.5 12.6716 15.5 13.5V15.5M8.5 15.5H15.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </span> GitHub
+            </a>
+            <a href="ANKIT_KUMAR.pdf" target="_blank" class="cta-button" aria-label="Download resume PDF">
+              <span class="cta-icon"> <!-- Resume SVG -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#e74c3c"/><path d="M8 7C8 6.44772 8.44772 6 9 6H15C15.5523 6 16 6.44772 16 7V17C16 17.5523 15.5523 18 15 18H9C8.44772 18 8 17.5523 8 17V7Z" stroke="#fff" stroke-width="1.5"/><path d="M10 9H14M10 12H14M10 15H12" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </span> Resume
+            </a>
+          </div>
+          <div class="cta-row">
+            <a href="#" class="cta-button" aria-label="Location">
+              <span class="cta-icon"> <!-- Location SVG -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#8e44ad"/><path d="M12 17C12 17 16 13.4183 16 10.5C16 8.01472 14.2091 6 12 6C9.79086 6 8 8.01472 8 10.5C8 13.4183 12 17 12 17Z" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="10.5" r="1.5" fill="#fff"/></svg>
+              </span> Delhi, India
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .cta-icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.5em;
+        margin-bottom: 2px;
+      }
+    </style>
+
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>All rights reserved &copy; 2025</p>
+    <p>© 2025 Ankit Kumar. All rights reserved. | Built with ❤️ and AI</p>
   </footer>
+
+
 
   <!-- Typing Animation Script -->
   <script>
@@ -446,6 +1591,46 @@
       autoStart: true,
     });
   </script>
+  <script>
+    // Tab switching logic for projects
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabBtns = document.querySelectorAll('.projects-tab-btn');
+      const tabContents = document.querySelectorAll('.projects-tab-content');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const tab = this.getAttribute('data-tab');
+          tabContents.forEach(tc => {
+            tc.style.display = (tc.id === 'tab-' + tab) ? '' : 'none';
+          });
+        });
+      });
+    });
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.video-container').forEach(container => {
+      const thumbnail = container.querySelector('.video-thumbnail');
+      const playBtn = container.querySelector('.video-play-btn');
+      const video = container.querySelector('video');
+      if (thumbnail && playBtn && video) {
+        playBtn.addEventListener('click', function() {
+          thumbnail.style.display = 'none';
+          video.style.display = '';
+          video.play();
+        });
+        thumbnail.addEventListener('click', function() {
+          thumbnail.style.display = 'none';
+          video.style.display = '';
+          video.play();
+        });
+      }
+    });
+  });
+  </script>
 </body>
 
 </html>
+

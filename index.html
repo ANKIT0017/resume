@@ -33,7 +33,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  
+
   <!-- Google Fonts for modern typography -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   
@@ -427,34 +427,55 @@
       background: none;
       color: #222;
       padding: 60px 20px;
-      margin: 40px 0;
+      margin: 24px 0 !important;
       border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .education-content {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
       text-align: center;
     }
 
     .education-item {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 10px;
-      padding: 30px;
-      margin: 20px 0;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: var(--bg-card);
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(52,152,219,0.08);
+      padding: 2rem 2.5rem 1.5rem 2.5rem;
+      margin: 24px 0;
+      border: 1.5px solid #e3e9f2;
+      text-align: left;
+      transition: box-shadow 0.2s, border 0.2s;
+    }
+
+    .education-item:hover {
+      box-shadow: 0 6px 32px rgba(52,152,219,0.13);
+      border: 1.5px solid #3498db;
     }
 
     .education-item h3 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       margin-bottom: 10px;
+      color: #3498db;
     }
 
     .education-item p {
-      font-size: 1.1rem;
-      margin: 5px 0;
-      opacity: 0.9;
+      font-size: 1.08rem;
+      margin: 6px 0;
+      opacity: 0.92;
+      color: var(--text-main);
+    }
+
+    @media (max-width: 700px) {
+      .education-item {
+        padding: 1.2rem 1rem 1rem 1rem;
+      }
+      .education-content {
+        padding: 0 4px;
+      }
     }
 
     /* Experience Section */
@@ -516,21 +537,54 @@
     }
 
     .certifications-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .certification-item {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      max-width: 600px;
+      width: 100%;
+      margin: 20px 0;
+      background: var(--bg-card);
       border-radius: 10px;
       padding: 25px;
-      margin: 20px 0;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      display: inline-block;
-      margin: 10px;
-      min-width: 300px;
+      box-shadow: 0 2px 8px rgba(52,152,219,0.06);
+    }
+    .certification-logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .certification-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #fff;
+      border: 2px solid #e3e9f2;
+    }
+    .certification-details {
+      flex: 1;
+      text-align: left;
+    }
+    @media (max-width: 700px) {
+      .certification-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        padding: 16px 8px;
+      }
+      .certification-details {
+        text-align: center;
+      }
     }
 
     .certification-item h4 {
@@ -956,6 +1010,9 @@
       border-left: 3px solid #3498db;
     }
     .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
       position: relative;
       margin-bottom: 2.5rem;
       min-height: 60px;
@@ -1008,15 +1065,234 @@
         padding: 1rem 0.7rem;
         margin-left: 1rem;
       }
+      .timeline-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .timeline-logo img {
+        width: 36px;
+        height: 36px;
+      }
     }
 
     body.dark-mode #Skills h1 {
       color: #fff !important;
     }
+
+    #about {
+      width: 100%;
+      background: none;
+      padding: 60px 0 40px 0;
+      margin-bottom: 0;
+    }
+    .about-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+      flex-wrap: wrap;
+      background: var(--bg-card);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(52,152,219,0.07);
+    }
+    .about-profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+      border: 5px solid #fff;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .about-text {
+      flex: 1;
+      min-width: 220px;
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--text-main);
+      padding: 0 8px;
+    }
+    #about h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #3498db;
+      font-family: 'Poppins', 'Roboto', Arial, sans-serif;
+      margin-bottom: 18px;
+      text-align: left;
+    }
+    @media (max-width: 900px) {
+      .about-container {
+        flex-direction: column;
+        gap: 28px;
+        padding: 0 8px;
+      }
+      .about-profile-img {
+        margin: 0 auto;
+      }
+      #about h2 {
+        text-align: center;
+      }
+    }
+    @media (max-width: 600px) {
+      .about-profile-img {
+        width: 140px;
+        height: 140px;
+      }
+      .about-text {
+        font-size: 1.08rem;
+        padding: 0;
+      }
+      #about h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .certifications-section h1 {
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      text-align: center;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+    }
+    @media (max-width: 700px) {
+      .certifications-section h1 {
+        font-size: 1.3rem;
+        white-space: nowrap;
+      }
+    }
+
+    /* Add to the CSS section */
+    .timeline-logo {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .timeline-logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(52,152,219,0.10);
+      background: #fff;
+      border: 2px solid #e3e9f2;
+    }
+    @media (max-width: 600px) {
+      .timeline-logo img {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    /* Timeline content logo placement */
+    .timeline-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: #f8fafd;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin-left: 1.5rem;
+      box-shadow: 0 2px 8px rgba(52,152,219,0.06);
+      transition: box-shadow 0.2s;
+    }
+    .timeline-content .timeline-logo {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .timeline-content .timeline-logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(52,152,219,0.10);
+      background: #fff;
+      border: 2px solid #e3e9f2;
+    }
+    @media (max-width: 600px) {
+      .timeline-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .timeline-content .timeline-logo img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    /* Certification logo styles */
+    .certification-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      max-width: 600px;
+      width: 100%;
+      margin: 20px 0;
+      background: var(--bg-card);
+      border-radius: 10px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 2px 8px rgba(52,152,219,0.06);
+    }
+    .certification-logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .certification-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #fff;
+      border: 2px solid #e3e9f2;
+    }
+    .certification-details {
+      flex: 1;
+      text-align: left;
+    }
+    @media (max-width: 700px) {
+      .certification-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        padding: 16px 8px;
+      }
+      .certification-details {
+        text-align: center;
+      }
+    }
+
+    .certification-item h4 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .certification-item p {
+      margin: 5px 0;
+      opacity: 0.9;
+    }
   </style>
 </head>
 
-<body>
+<body class="dark-mode">
   <!-- Skip to main content for accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -1132,13 +1408,13 @@
     bottom: 30px;
     transform: translateX(-50%);
     z-index: 2000;
-    display: flex;
+      display: flex;
     gap: 16px;
     background: var(--bg-toolbar);
     border-radius: 32px;
     box-shadow: var(--toolbar-shadow);
     padding: 8px 18px;
-    align-items: center;
+      align-items: center;
     transition: background 0.3s, box-shadow 0.3s;
   }
   .toolbar-btn {
@@ -1201,7 +1477,7 @@
     // Dark mode toggle
     const darkBtn = document.getElementById('darkmode-btn');
     const darkIcon = document.getElementById('darkmode-icon');
-    let dark = false;
+    let dark = true;
     darkBtn.addEventListener('click', function() {
       dark = !dark;
       document.body.classList.toggle('dark-mode', dark);
@@ -1218,51 +1494,19 @@
   <!-- Main Content Container -->
   <main id="main-content" class="content-container">
 <!-- Professional Summary Section -->
-<section id="about" style="width: 100%; background: linear-gradient(135deg, #ffffff, #f9f9f9); padding: 80px 20px;">
-    <div style="
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      gap: 60px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      flex-wrap: wrap;
-    ">
-    <h2 style="font-size: 2.5rem; font-weight: 600; color: #222; font-family: 'Times New Roman', Times, serif;text-align: center;">About Me</h2>
-
-      <!-- Profile Image -->
-      <div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 220px;">
-        <div style="
-          width: 220px;
-          height: 220px;
-          border-radius: 50%;
-          overflow: hidden;
-          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-          border: 5px solid #fff;
-          background: #fff;
-        ">
-          <img src="IMG_20240417_163007.jpg" alt="Profile Image" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-      </div>
-      <!-- Text Content -->
-      <div style="flex: 1; min-width: 100px;">
-        <p style="font-size: 1.6rem; line-height: 1.8; color: #444;">
-          I'm a passionate <strong style="color: #007BFF;">Deep Learning Engineer</strong> with hands-on experience in 
-          <strong>Computer Vision</strong>, <strong>NLP</strong>, <strong>Audio Processing</strong>, and <strong>Human Emotion Recognition</strong>.
-          <br><br>
-          I'm currently pursuing a Bachelor's (Hons.) in <strong>Computer Science</strong> (Major) and <strong>Statistics</strong> (Minor) at 
-          <u>University of Delhi</u>. I specialize in crafting intelligent, real-time systems that bridge data and human interaction.
-          <br><br>
-          My mission is to solve impactful problems through scalable AI/ML innovation rooted in academic rigor and production-grade experience.
-        </p>
-      </div>
-  
-      
-      
+<section id="about">
+  <div class="about-container">
+    <!-- Profile image removed -->
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I'm a passionate <strong style="color: #007BFF;">Deep Learning Engineer</strong> with hands-on experience in <strong>Computer Vision</strong>, <strong>NLP</strong>, <strong>Audio Processing</strong>, and <strong>Human Emotion Recognition</strong>.<br><br>
+        I'm currently pursuing a Bachelor's (Hons.) in <strong>Computer Science</strong> (Major) and <strong>Statistics</strong> (Minor) at <u>University of Delhi</u>.<br><br>
+        I specialize in crafting intelligent, real-time systems that bridge data and human interaction. My mission is to solve impactful problems through scalable AI/ML innovation rooted in academic rigor and production-grade experience.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
   
   
   
@@ -1344,22 +1588,22 @@
         <div class="projects-wrapper">
           <!-- AI/ML Projects -->
           <div class="projects-tab-content" id="tab-ai-ml">
-            <!-- Project 1: Multimodal Architecture -->
-            <article class="project">
-              <div class="project-description">
-                <h3>Multimodal Architecture for human level tasks using LANGCHAIN</h3>
-                <p>This powerful system can be used for various automation tasks requiring critical human thinking and validation. The architecture utilizes opensource LLMs like Llama and any other LLm also be used.</p>
-                <p>
-                  <a href="https://github.com/ANKIT0017/Multi_Modal_using_Ollama" target="_blank" style="color: #3498db;">View on GitHub</a>
-                </p>
-              </div>
-            </article>
-            <!-- Project 2: Real-Time Face Recognition -->
-            <article class="project">
-              <div class="project-description">
-                <h3>Real-Time Human Detection and Face Recognition Model</h3>
-                <p>This project involves an advanced AI system that detects and recognizes human faces in real-time scenarios, delivering robust security and analytics solutions.</p>
-              </div>
+          <!-- Project 1: Multimodal Architecture -->
+          <article class="project">
+            <div class="project-description">
+              <h3>Multimodal Architecture for human level tasks using LANGCHAIN</h3>
+              <p>This powerful system can be used for various automation tasks requiring critical human thinking and validation. The architecture utilizes opensource LLMs like Llama and any other LLm also be used.</p>
+              <p>
+                <a href="https://github.com/ANKIT0017/Multi_Modal_using_Ollama" target="_blank" style="color: #3498db;">View on GitHub</a>
+              </p>
+            </div>
+          </article>
+          <!-- Project 2: Real-Time Face Recognition -->
+          <article class="project">
+            <div class="project-description">
+              <h3>Real-Time Human Detection and Face Recognition Model</h3>
+              <p>This project involves an advanced AI system that detects and recognizes human faces in real-time scenarios, delivering robust security and analytics solutions.</p>
+            </div>
               <div class="video-container">
                 <div class="video-thumbnail" style="background-image: url('face-recognition-thumb.jpg');">
                   <button class="video-play-btn" aria-label="Play video">
@@ -1369,15 +1613,15 @@
                 <video controls preload="none" data-lazy style="display:none;">
                   <source data-src="real-time-face-recognition.mp4" type="video/mp4">
                   <p>Your browser does not support the video tag. <a href="real-time-face-recognition.mp4" target="_blank">Download video</a></p>
-                </video>
+            </video>
               </div>
-            </article>
-            <!-- Project 3: Fine-Tuning LLaMA3.1 -->
-            <article class="project">
-              <div class="project-description">
-                <h3>Fine-Tuning LLaMA3.1 for Personalized Career Guidance</h3>
-                <p>This production-level project refines LLaMA3.1 to provide tailored career advice by leveraging advanced machine learning techniques adapted to individual user profiles.</p>
-              </div>
+          </article>
+          <!-- Project 3: Fine-Tuning LLaMA3.1 -->
+          <article class="project">
+            <div class="project-description">
+              <h3>Fine-Tuning LLaMA3.1 for Personalized Career Guidance</h3>
+              <p>This production-level project refines LLaMA3.1 to provide tailored career advice by leveraging advanced machine learning techniques adapted to individual user profiles.</p>
+            </div>
               <div class="video-container">
                 <div class="video-thumbnail" style="background-image: url('finetuning-thumb.jpg');">
                   <button class="video-play-btn" aria-label="Play video">
@@ -1387,27 +1631,56 @@
                 <video controls preload="none" data-lazy style="display:none;">
                   <source data-src="finetuning.mp4" type="video/mp4">
                   <p>Your browser does not support the video tag. <a href="finetuning.mp4" target="_blank">Download video</a></p>
-                </video>
+            </video>
               </div>
-            </article>
+          </article>
+          <!-- Project 4: IYD Hackathon Complete Pipeline -->
+          <article class="project">
+            <div class="project-description">
+              <h3>IYD Hackathon Complete Pipeline</h3>
+              <p>End-to-end pipeline for the IYD Ramayana Hackathon, including semantic search, LLM-based fact verification, and batch processing for Valmiki Ramayana.</p>
+              <p>
+                <a href="https://github.com/ANKIT0017/IYD-hackathon-prediction_code" target="_blank" style="color: #3498db;">View on GitHub</a>
+              </p>
+            </div>
+          </article>
+          <!-- Project 5: ARID-ELLAR Dataset Compare for Low Light -->
+          <article class="project">
+            <div class="project-description">
+              <h3>ARID-ELLAR Dataset Compare for Low Light</h3>
+              <p>Comparative analysis and benchmarking of ARID and ELLAR datasets for low-light image enhancement and recognition.</p>
+              <p>
+                <a href="https://github.com/ANKIT0017/ARID-ELLAR-Dataset-compare" target="_blank" style="color: #3498db;">View on GitHub</a>
+              </p>
+            </div>
+          </article>
           </div>
           <!-- WebDev Projects -->
           <div class="projects-tab-content" id="tab-webdev" style="display: none;">
             <article class="project">
               <div class="project-description">
-                <h3>Personal Portfolio Website</h3>
-                <p>A modern, responsive portfolio website built with HTML, CSS, and JavaScript, featuring interactive animations, smooth navigation, and a professional design.</p>
+                <h3>AURANET – Social Media Platform (MERN)</h3>
+                <p>A social media platform for humans only (no bots) where users can post publicly and anonymously, engage in communities, and much more.</p>
                 <p>
-                  <a href="https://github.com/ANKIT0017/portfolio" target="_blank" style="color: #3498db;">View on GitHub</a>
+                  <a href="https://social-media-4r9d.vercel.app/" target="_blank" style="color: #3498db;">Live Demo</a>
                 </p>
               </div>
             </article>
             <article class="project">
               <div class="project-description">
-                <h3>Real-Time Chat Application</h3>
-                <p>A full-stack web chat app using Node.js, Express, and Socket.io, supporting real-time messaging, user authentication, and responsive UI.</p>
+                <h3>early_job Scrapper (Python)</h3>
+                <p>A Python-based web scraper for early job postings, automating the search and aggregation of new opportunities.</p>
                 <p>
-                  <a href="https://github.com/ANKIT0017/realtime-chat" target="_blank" style="color: #3498db;">View on GitHub</a>
+                  <a href="https://auto-search-5idv.onrender.com/" target="_blank" style="color: #3498db;">Live Demo</a>
+                </p>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-description">
+                <h3>Real Time Chat App (MERN)</h3>
+                <p>A real-time chat application built with the MERN stack, supporting instant messaging and user authentication.</p>
+                <p>
+                  <a href="https://github.com/ANKIT0017/mern_chatapp" target="_blank" style="color: #3498db;">View on GitHub</a>
                 </p>
               </div>
             </article>
@@ -1430,9 +1703,9 @@
           <p><strong>Current GPA:</strong> 8.5/10</p>
           <p><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Machine Learning, Computer Vision, Database Management Systems, Statistics & Probability, Linear Algebra, Calculus</p>
         </div>
-      </div>
-    </section>
-
+        </div>
+      </section>
+      
     <!-- Experience Section -->
     <section id="experience" class="experience-section">
       <div class="experience-content">
@@ -1442,36 +1715,56 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>Intern, Delhi Technological University</h3>
-              <span class="timeline-date">Human Action Recognition (HAR) &bull; 19 June 2025 – Present</span>
-              <p>Working on advanced human action recognition systems using deep learning and computer vision techniques.</p>
+              <div class="timeline-logo">
+                <img src="dtu.png" alt="Delhi Technological University Logo">
+              </div>
+              <div>
+                <h3>Intern, Delhi Technological University</h3>
+                <span class="timeline-date">Human Action Recognition (HAR) &bull; 19 June 2025 – Present</span>
+                <p>Working on advanced human action recognition systems using deep learning and computer vision techniques.</p>
+              </div>
             </div>
           </div>
           <!-- Timeline Item 2 -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>IYD Ramayana Hackathon</h3>
-              <span class="timeline-date">AI/ML Hackathon</span>
-              <p>Implemented Retrieval-Augmented Generation (RAG) and enhanced LLM models for Valmiki Ramayana Shloka Verifier.</p>
+              <div class="timeline-logo">
+                <img src="IYD.png" alt="IYD Ramayana Hackathon Logo">
+              </div>
+              <div>
+                <h3>IYD Ramayana Hackathon</h3>
+                <span class="timeline-date">AI/ML Hackathon</span>
+                <p>Implemented Retrieval-Augmented Generation (RAG) and enhanced LLM models for Valmiki Ramayana Shloka Verifier.</p>
+              </div>
             </div>
           </div>
           <!-- Timeline Item 3 -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>SIH (Smart India Hackathon)</h3>
-              <span class="timeline-date">Career Guidance System</span>
-              <p>Finetuned and improved LLM model by 83% for a production-level career guidance system.</p>
+              <div class="timeline-logo">
+                <img src="SIH.png" alt="Smart India Hackathon Logo">
+              </div>
+              <div>
+                <h3>SIH (Smart India Hackathon)</h3>
+                <span class="timeline-date">Career Guidance System</span>
+                <p>Finetuned and improved LLM model by 83% for a production-level career guidance system.</p>
+              </div>
             </div>
           </div>
           <!-- Timeline Item 4 -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>Research in ViT (Vision Transformer), PGDAV College</h3>
-              <span class="timeline-date">Research &bull; 3 months</span>
-              <p>Conducted research on Vision Transformer architectures for advanced image understanding tasks.</p>
+              <div class="timeline-logo">
+                <img src="pgdav.png" alt="PGDAV College Logo">
+              </div>
+              <div>
+                <h3>Research in ViT (Vision Transformer), PGDAV College</h3>
+                <span class="timeline-date">Research &bull; 3 months</span>
+                <p>Conducted research on Vision Transformer architectures for advanced image understanding tasks.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1484,29 +1777,56 @@
         <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 60px; margin-bottom: 40px;">Certifications & Achievements</h1>
         
         <div class="certification-item">
-          <h4>Research Membership</h4>
-          <p><strong>Institution:</strong> PGDAV College (University of Delhi)</p>
-          <p><strong>Year:</strong> 2024</p>
-          <p><strong>Focus:</strong> AI & Computer Vision Research</p>
+          <div class="certification-logo">
+            <img src="pgdav.png" alt="PGDAV College Logo">
+          </div>
+          <div class="certification-details">
+            <h4>Research Membership</h4>
+            <p><strong>Institution:</strong> PGDAV College (University of Delhi)</p>
+            <p><strong>Year:</strong> 2024</p>
+            <p><strong>Focus:</strong> AI & Computer Vision Research</p>
+          </div>
         </div>
-
         <div class="certification-item">
-          <h4>Smart India Hackathon Participant</h4>
-          <p><strong>Organizer:</strong> Government of India</p>
-          <p><strong>Year:</strong> 2025</p>
-          <p><strong>Category:</strong> Innovation & Technology</p>
+          <div class="certification-logo">
+            <img src="SIH.png" alt="Smart India Hackathon Logo">
+          </div>
+          <div class="certification-details">
+            <h4>Smart India Hackathon Participant</h4>
+            <p><strong>Organizer:</strong> Government of India</p>
+            <p><strong>Year:</strong> 2025</p>
+            <p><strong>Category:</strong> Innovation & Technology</p>
+          </div>
         </div>
-
         <div class="certification-item">
-          <h4>Machine Learning Specialization</h4>
-          <p><strong>Platform:</strong> Coursera</p>
-          <p><strong>Focus:</strong> Deep Learning & Neural Networks</p>
+          <div class="certification-logo">
+            <img src="coursera.png" alt="Coursera Logo">
+          </div>
+          <div class="certification-details">
+            <h4>Machine Learning Specialization</h4>
+            <p><strong>Platform:</strong> Coursera</p>
+            <p><strong>Focus:</strong> Deep Learning & Neural Networks</p>
+          </div>
         </div>
-
         <div class="certification-item">
-          <h4>Python for Data Science</h4>
-          <p><strong>Platform:</strong> IBM</p>
-          <p><strong>Focus:</strong> Data Analysis & Visualization</p>
+          <div class="certification-logo">
+            <img src="coursera.png" alt="Coursera Logo">
+          </div>
+          <div class="certification-details">
+            <h4>Python for Data Science</h4>
+            <p><strong>Platform:</strong> Coursera</p>
+            <p><strong>Focus:</strong> Data Analysis & Visualization</p>
+          </div>
+        </div>
+        <div class="certification-item">
+          <div class="certification-logo">
+            <img src="coursera.png" alt="Coursera Logo">
+          </div>
+          <div class="certification-details">
+            <h4>Unsupervised Learning & Recommenders - Reinforcement Learning</h4>
+            <p><strong>Platform:</strong> Coursera</p>
+            <p><strong>Focus:</strong> Unsupervised Learning, Recommender Systems, RL</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1518,37 +1838,37 @@
         <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.9;">I'm always open to discussing new opportunities, collaborations, or just having a chat about AI and technology!</p>
         <div class="cta-buttons">
           <div class="cta-row">
-            <a href="mailto:ankitsuperku@gmail.com" class="cta-button" aria-label="Send me an email">
-              <span class="cta-icon"> <!-- Email SVG -->
+            <a href="mailto:ankitsuperku@gmail.com" class="cta-button" aria-label="Send me an email" style="pointer-events:auto;">
+              <span class="cta-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#3498db"/><path d="M6 8.5V15.5C6 16.3284 6.67157 17 7.5 17H16.5C17.3284 17 18 16.3284 18 15.5V8.5C18 7.67157 17.3284 7 16.5 7H7.5C6.67157 7 6 7.67157 6 8.5Z" stroke="#fff" stroke-width="1.5"/><path d="M7 9L12 13L17 9" stroke="#fff" stroke-width="1.5"/></svg>
               </span> Email
             </a>
-            <a href="tel:+91-9876543210" class="cta-button" aria-label="Call me">
-              <span class="cta-icon"> <!-- Phone SVG -->
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#27ae60"/><path d="M7.5 6.5C7.5 6.5 8.5 10.5 12 14C15.5 17.5 17.5 17.5 17.5 17.5C17.5 17.5 17.5 15.5 16 14C14.5 12.5 12.5 10.5 11 9C9.5 7.5 7.5 6.5 7.5 6.5Z" stroke="#fff" stroke-width="1.5"/></svg>
-              </span> Phone
-            </a>
-            <a href="https://linkedin.com/in/ankit-kumar-ai" target="_blank" class="cta-button" aria-label="Visit LinkedIn profile">
-              <span class="cta-icon"> <!-- LinkedIn SVG -->
+            <a href="https://linkedin.com/in/ankit0017" target="_blank" class="cta-button" aria-label="Visit LinkedIn profile">
+              <span class="cta-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#0077B5"/><path d="M8.5 10.5V16M8.5 8V8.01M12 16V13.5C12 12.6716 12.6716 12 13.5 12C14.3284 12 15 12.6716 15 13.5V16M7.5 16H9.5M14.5 16H16.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
               </span> LinkedIn
+            </a>
+            <a href="https://leetcode.com/u/ANKIT0017/" target="_blank" class="cta-button" aria-label="Visit LeetCode profile">
+              <span class="cta-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#FFA116"/><path d="M8 16.5C8 16.5 10.5 19 15 19C17.5 19 19 17.5 19 15C19 12.5 17.5 11 15 11C12.5 11 11 12.5 11 15" stroke="#222" stroke-width="1.5"/><path d="M16 8.5C16 8.5 13.5 6 9 6C6.5 6 5 7.5 5 10C5 12.5 6.5 14 9 14C11.5 14 13 12.5 13 10" stroke="#222" stroke-width="1.5"/></svg>
+              </span> LeetCode
             </a>
           </div>
           <div class="cta-row">
             <a href="https://github.com/ANKIT0017" target="_blank" class="cta-button" aria-label="Visit GitHub profile">
-              <span class="cta-icon"> <!-- GitHub SVG -->
+              <span class="cta-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#333"/><path d="M12 17.5C8.5 17.5 8.5 15.5 8.5 15.5M12 17.5C15.5 17.5 15.5 15.5 15.5 15.5M12 17.5V15.5M8.5 15.5V13.5C8.5 12.6716 9.17157 12 10 12H14C14.8284 12 15.5 12.6716 15.5 13.5V15.5M8.5 15.5H15.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
               </span> GitHub
             </a>
             <a href="ANKIT_KUMAR.pdf" target="_blank" class="cta-button" aria-label="Download resume PDF">
-              <span class="cta-icon"> <!-- Resume SVG -->
+              <span class="cta-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#e74c3c"/><path d="M8 7C8 6.44772 8.44772 6 9 6H15C15.5523 6 16 6.44772 16 7V17C16 17.5523 15.5523 18 15 18H9C8.44772 18 8 17.5523 8 17V7Z" stroke="#fff" stroke-width="1.5"/><path d="M10 9H14M10 12H14M10 15H12" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
               </span> Resume
             </a>
           </div>
           <div class="cta-row">
             <a href="#" class="cta-button" aria-label="Location">
-              <span class="cta-icon"> <!-- Location SVG -->
+              <span class="cta-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#8e44ad"/><path d="M12 17C12 17 16 13.4183 16 10.5C16 8.01472 14.2091 6 12 6C9.79086 6 8 8.01472 8 10.5C8 13.4183 12 17 12 17Z" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="10.5" r="1.5" fill="#fff"/></svg>
               </span> Delhi, India
             </a>
@@ -1565,7 +1885,7 @@
         margin-bottom: 2px;
       }
     </style>
-
+      
   </main>
 
   <!-- Footer -->
@@ -1628,7 +1948,7 @@
         });
       }
     });
-  });
+    });
   </script>
 </body>
 

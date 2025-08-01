@@ -1335,12 +1335,9 @@
 
   <!-- Hero Section with Spline Viewer -->
   <header class="hero">
-    <div class="spline-container">
+    <div class="spline-container" id="spline-container">
       <div class="spline-loading" id="spline-loading">Loading 3D Experience...</div>
-      <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
-      <spline-viewer url="https://prod.spline.design/0Z99jWIfx64jbk1Y/scene.splinecode" 
-                     onload="document.getElementById('spline-loading').style.display='none'"
-                     onerror="document.getElementById('spline-loading').innerHTML='3D content failed to load'"></spline-viewer>
+      <!-- Spline viewer will be dynamically inserted here -->
     </div>
     <!-- Overlay with Animated Text and Clickable Links -->
     <div class="hero-overlay">
@@ -1931,6 +1928,7 @@
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Video container functionality
     document.querySelectorAll('.video-container').forEach(container => {
       const thumbnail = container.querySelector('.video-thumbnail');
       const playBtn = container.querySelector('.video-play-btn');
@@ -1948,7 +1946,116 @@
         });
       }
     });
-    });
+
+    // Spline viewer - load immediately, remove on scroll
+    let splineRendered = false;
+    let splineRemoved = false;
+    const splineContainer = document.getElementById('spline-container');
+    const splineLoading = document.getElementById('spline-loading');
+
+    function handleSplineScroll() {
+      if (splineRemoved) return; // Don't do anything if already removed
+
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      console.log('Scroll position:', scrollY, 'Window height:', windowHeight);
+      
+      // Remove Spline when user scrolls down past the hero section (past 100% of viewport height)
+      if (splineRendered && scrollY > windowHeight) {
+        console.log('Removing Spline - user scrolled past hero section');
+        removeSpline();
+      }
+    }
+
+    function renderSpline() {
+      if (splineRendered) return;
+      
+      console.log('Rendering Spline immediately...');
+      splineRendered = true;
+      
+      // Check if Spline script is already loaded
+      if (document.querySelector('script[src*="spline-viewer.js"]')) {
+        console.log('Spline script already loaded, creating viewer directly');
+        createSplineViewer();
+        return;
+      }
+      
+      // Load Spline script
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = 'https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js';
+      
+      script.onload = function() {
+        console.log('Spline script loaded successfully');
+        createSplineViewer();
+      };
+      
+      script.onerror = function() {
+        console.error('Failed to load Spline script');
+        splineLoading.innerHTML = 'Failed to load 3D content';
+      };
+      
+      document.head.appendChild(script);
+    }
+
+    function createSplineViewer() {
+      console.log('Creating Spline viewer element');
+      
+      // Create Spline viewer element
+      const splineViewer = document.createElement('spline-viewer');
+      splineViewer.setAttribute('url', 'https://prod.spline.design/0Z99jWIfx64jbk1Y/scene.splinecode');
+      
+      // Set up event handlers
+      splineViewer.addEventListener('load', function() {
+        console.log('Spline viewer loaded successfully');
+        if (splineLoading) {
+          splineLoading.style.display = 'none';
+        }
+      });
+      
+      splineViewer.addEventListener('error', function() {
+        console.error('Spline viewer failed to load');
+        if (splineLoading) {
+          splineLoading.innerHTML = '3D content failed to load';
+        }
+      });
+      
+      // Insert Spline viewer into container
+      splineContainer.appendChild(splineViewer);
+      console.log('Spline viewer added to container');
+    }
+
+    function removeSpline() {
+      if (splineRemoved) return;
+      
+      console.log('Removing Spline viewer permanently');
+      splineRemoved = true;
+      
+      // Remove Spline viewer and loading indicator
+      const splineViewer = splineContainer.querySelector('spline-viewer');
+      if (splineViewer) {
+        splineViewer.remove();
+        console.log('Spline viewer removed');
+      }
+      if (splineLoading) {
+        splineLoading.remove();
+        console.log('Loading indicator removed');
+      }
+      
+      // Remove scroll listener since we don't need it anymore
+      window.removeEventListener('scroll', handleSplineScroll);
+      console.log('Scroll listener removed');
+    }
+
+    // Render Spline immediately when page loads
+    console.log('Loading Spline immediately on page load');
+    renderSpline();
+    
+    // Add scroll event listener to remove Spline when user scrolls down
+    window.addEventListener('scroll', handleSplineScroll);
+    console.log('Spline scroll listener added for removal');
+  });
   </script>
 </body>
 
